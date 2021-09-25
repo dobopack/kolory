@@ -1,6 +1,7 @@
 import gql from "graphql-tag";
 import Head from "next/head";
 import client from "../apolloClient";
+import AboutSection from "../components/landing/AboutSection";
 
 import HeroSection from "../components/landing/HeroSection";
 
@@ -20,6 +21,7 @@ export default function Home({ categories }) {
       </Head>
       <main>
         <HeroSection />
+        <AboutSection />
       </main>
       {/* <ul>
         {categories.map((category, i) => (
