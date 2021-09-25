@@ -1,0 +1,14 @@
+.header {
+  position: relative;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background-color: rgba(120, 189, 111, 0.3);
+  width: 35px;
+  height: 35px;
+  top: 5px;
+  left: -10px;
+}
