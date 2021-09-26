@@ -32,3 +32,8 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# dev
+/images
+kolory-next.zip
+.vscode
