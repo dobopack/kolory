@@ -14,7 +14,7 @@ import classes from "./AboutSection.module.css";
 
 function AboutSection() {
   return (
-    <Section className={classes.aboutSection}>
+    <Section className={classes.aboutSection} id="aboutSection">
       <Header>Dlaczego my?</Header>
       <p>
         Jesteśmy aktywni na rynku od 1992 roku, zaopatrując w najwyższej jakości
