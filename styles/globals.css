@@ -8,6 +8,10 @@
   --brown-color: #32231c;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
