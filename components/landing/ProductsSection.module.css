@@ -1,0 +1,21 @@
+.productsSection {
+  background-color: #f8f8f8;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: -2;
+}
+
+.productsSection > p {
+  margin: 80px 40px;
+  text-align: center;
+}
+
+.cardsBox {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
