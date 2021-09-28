@@ -1,9 +1,10 @@
 import gql from "graphql-tag";
 import Head from "next/head";
 import client from "../apolloClient";
-import AboutSection from "../components/landing/AboutSection";
 
 import HeroSection from "../components/landing/HeroSection";
+import AboutSection from "../components/landing/AboutSection";
+import ProductsSection from "../components/landing/ProductsSection";
 
 export default function Home({ categories }) {
   return (
@@ -22,14 +23,8 @@ export default function Home({ categories }) {
       <main>
         <HeroSection />
         <AboutSection />
+        <ProductsSection categories={categories} />
       </main>
-      {/* <ul>
-        {categories.map((category, i) => (
-          <li key={i}>
-            <a href={category.slug}>{category.name}</a>
-          </li>
-        ))}
-      </ul> */}
     </div>
   );
 }
@@ -42,6 +37,9 @@ export async function getStaticProps() {
           id
           name
           slug
+          image {
+            url
+          }
         }
       }
     `,
