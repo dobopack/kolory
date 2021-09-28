@@ -12,3 +12,7 @@
   top: 5px;
   left: -10px;
 }
+
+.headerContainer {
+  z-index: 1;
+}
