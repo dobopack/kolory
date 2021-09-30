@@ -9,7 +9,6 @@ function Input(props) {
         className={`${classes.formInput} ${props.className}`}
         id={props.id}
         name={props.name}
-        // autoComplete="off"
         value={props.value}
         onChange={props.onChangeText}
         type={props.type}
