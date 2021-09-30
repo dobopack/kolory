@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
-  const isMain = Object.values(router.query).length > 0 ? false : true;
+  const isMain = router.route === "/" ? true : false;
 
   return (
     <Layout isMain={isMain}>
