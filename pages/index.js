@@ -5,6 +5,7 @@ import client from "../apolloClient";
 import HeroSection from "../components/landing/HeroSection";
 import AboutSection from "../components/landing/AboutSection";
 import ProductsSection from "../components/landing/ProductsSection";
+import FormSection from "../components/landing/FormSection";
 
 export default function Home({ categories }) {
   return (
@@ -24,6 +25,7 @@ export default function Home({ categories }) {
         <HeroSection />
         <AboutSection />
         <ProductsSection categories={categories} />
+        <FormSection />
       </main>
     </div>
   );
