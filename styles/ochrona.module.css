@@ -1,0 +1,30 @@
+.wrapper {
+  margin-bottom: 100px;
+}
+
+.header {
+  margin-bottom: 50px;
+}
+
+.wrapper p {
+  margin: 15px 0;
+  color: rgba(26, 18, 14, 1);
+}
+
+.wrapper h2 {
+  margin: 20px 0;
+}
+
+.wrapper li {
+  list-style: none;
+  margin-left: 15px;
+  margin-bottom: 5px;
+  color: rgba(26, 18, 14, 0.7);
+}
+
+.buttonWrapper {
+  margin-top: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
