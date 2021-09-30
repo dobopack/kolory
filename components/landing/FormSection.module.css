@@ -1,0 +1,83 @@
+.container {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  margin-bottom: 80px;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.columnsWrapper {
+  display: flex;
+  width: 100%;
+  margin-top: 80px;
+}
+
+.firstColumn {
+  margin: 0 15px;
+  flex: 0 0 30%;
+}
+
+.secondColumn {
+  margin: 0 15px;
+  flex: 1 0 300px;
+}
+
+.caption {
+  margin-top: 30px;
+  padding: 0 10px;
+  font-family: "Cabin";
+  font-size: 15px;
+  color: rgba(26, 18, 14, 0.5);
+  line-height: 140%;
+}
+
+.captionBold {
+  color: rgba(26, 18, 14, 0.8);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.formButton {
+  margin-top: 80px;
+  padding: 14px;
+  width: 170px;
+  border-radius: 3px;
+  background-color: var(--orange-color);
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Poppins";
+  transition: opacity 0.2s ease-in-out;
+}
+
+.formButton:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.notification {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 1000px) {
+  .formWrapper {
+    flex-direction: column;
+  }
+
+  .secondColumn {
+    flex: none;
+  }
+}
