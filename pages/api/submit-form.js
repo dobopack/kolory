@@ -83,7 +83,7 @@ export default async function handler(req, res) {
 
     const mailData = {
       from: "'Dobopack' <mailer@kolory.com>",
-      // to: "RECEIVER",
+      to: process.env.RECEIVER,
       subject: subject,
       text: text,
       html: html,
