@@ -1,0 +1,23 @@
+.wrapper {
+  margin-bottom: 100px;
+}
+
+.header {
+  margin-bottom: 50px;
+}
+
+.wrapper p {
+  margin: 15px 0;
+  color: rgba(26, 18, 14, 0.8);
+}
+
+.wrapper h3 {
+  margin: 20px 0;
+}
+
+.buttonWrapper {
+  margin-top: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
