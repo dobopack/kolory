@@ -1,0 +1,55 @@
+.formInput {
+  background-color: transparent;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0);
+  border-bottom: 2px solid rgba(26, 18, 14, 0.3);
+  color: #555;
+  box-sizing: border-box;
+  font-family: "Mulish";
+  font-size: 16px;
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+  resize: none;
+  padding: 0 10px 3px;
+}
+
+.wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.formInput:focus {
+  outline: none;
+}
+
+.formInput:-webkit-autofill,
+.formInput:-webkit-autofill:hover,
+.formInput:-webkit-autofill:focus {
+  border-top: 1px solid white;
+  border-bottom: 2px solid rgba(26, 18, 14, 0.3);
+  box-shadow: 0 0 0 50px white inset;
+}
+
+.formInput::-webkit-input-placeholder {
+  color: rgba(26, 18, 14, 0.4);
+  padding: 30px 0;
+}
+
+.formInput:focus + .underline {
+  transform: scale(1);
+}
+
+.underline {
+  background-color: rgba(250, 189, 2, 0.7);
+  display: inline-block;
+  height: 2px;
+  position: absolute;
+  -webkit-transform: scale(0, 1);
+  transform: scale(0, 1);
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  width: 100%;
+  left: 0;
+  top: 124px;
+}
