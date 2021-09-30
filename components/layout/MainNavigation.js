@@ -20,16 +20,32 @@ function MainNavigation({ isMain }) {
       </div>
       <nav>
         <ul>
-          <li onClick={removeHash} className={classes.navLinks}>
+          <li
+            onClick={removeHash}
+            className={`${classes.navLinks} ${
+              isMain ? classes.whiteLinks : classes.darkLinks
+            }`}>
             <Link href="/#aboutSection">O nas</Link>
           </li>
-          <li onClick={removeHash} className={classes.navLinks}>
+          <li
+            onClick={removeHash}
+            className={`${classes.navLinks} ${
+              isMain ? classes.whiteLinks : classes.darkLinks
+            }`}>
             <Link href="/#productSection">Produkty</Link>
           </li>
-          <li onClick={removeHash} className={classes.navLinks}>
+          <li
+            onClick={removeHash}
+            className={`${classes.navLinks} ${
+              isMain ? classes.whiteLinks : classes.darkLinks
+            }`}>
             <Link href="/#footerSection">Kontakt</Link>
           </li>
-          <li className={classes.ctaButton} onClick={removeHash}>
+          <li
+            className={`${classes.ctaButton} ${
+              isMain ? classes.whiteLinks : classes.darkLinks
+            }`}
+            onClick={removeHash}>
             <Link href="/#formSection">Napisz do nas</Link>
           </li>
         </ul>

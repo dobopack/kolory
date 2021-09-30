@@ -48,13 +48,13 @@
   width: 100%;
   height: 100%;
   top: 0;
-  right: -100%;
+  left: -100%;
   border-bottom: 1px solid var(--orange-color);
   transition: transform 0.2s ease-in-out;
 }
 
 .navLinks a:hover::after {
-  transform: translateX(-100%);
+  transform: translateX(100%);
 }
 
 .header a:hover,
@@ -72,4 +72,14 @@
 
 .ctaButton a:hover {
   opacity: 0.8;
+}
+
+.darkLinks a,
+.darkLinks a:hover,
+.darkLinks a:active {
+  color: var(--brown-color);
+}
+
+.whiteLinks a {
+  color: white;
 }
