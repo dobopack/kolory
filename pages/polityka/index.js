@@ -91,7 +91,7 @@ function index() {
         </i>
       </p>
       <div className={classes.buttonWrapper}>
-        <ReturnButton className={classes.returnButton} href="/">
+        <ReturnButton className={classes.returnButton} href="/#formSection">
           wróć na stronę główną
         </ReturnButton>
       </div>
