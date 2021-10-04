@@ -73,7 +73,7 @@
 }
 
 @media (max-width: 1000px) {
-  .formWrapper {
+  .columnsWrapper {
     flex-direction: column;
   }
 
