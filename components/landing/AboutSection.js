@@ -28,6 +28,7 @@ function AboutSection() {
           image={aboutPartners}
           imgHeight={80}
           imgWidth={90}
+          alt="Partnerzy"
           header="Partnerzy"
           paragraph="Współpracujemy z międzynarodowymi producentami aromatów spożywczych
             oraz baz do napojów."
@@ -36,6 +37,7 @@ function AboutSection() {
           image={aboutRequirements}
           imgHeight={80}
           imgWidth={93}
+          alt="Wymagania jakościowe"
           header="Wymagania jakościowe"
           paragraph="Oferowane przez nas dodatki spożywcze są produkowane przez naszych
             dostawców w zgodzie z najnowszymi przepisami oraz certyfikacjami
@@ -46,6 +48,7 @@ function AboutSection() {
           image={aboutControl}
           imgHeight={80}
           imgWidth={110}
+          alt="Kontrola warunków magazynowania"
           header="Kontrola warunków magazynowania"
           paragraph="Dzięki wewnętrznemu systemowi HACCP zapewniamy odpowiedni sposób
             magazynowania substancji dodatkowych i jego stałą kontrolę."
@@ -54,10 +57,18 @@ function AboutSection() {
       <div className={classes.partnersSection}>
         <p>Główni partnerzy</p>
         <div className={classes.partnerImage}>
-          <Image src={kancorLogo} width={212} height={50}></Image>
+          <Image
+            src={kancorLogo}
+            width={212}
+            height={50}
+            alt="Kancor Logo"></Image>
         </div>
         <div className={classes.partnerImage}>
-          <Image src={akrasLogo} width={179} height={50}></Image>
+          <Image
+            src={akrasLogo}
+            width={179}
+            height={50}
+            alt="Akras Logo"></Image>
         </div>
       </div>
     </Section>

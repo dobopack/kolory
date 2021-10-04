@@ -16,10 +16,10 @@ function HeroSection() {
           przemysłu
         </p>
         <div className={classes.buttonSection} onClick={removeHash}>
-          <Link href="/#productSection">
+          <Link href="/#productSection" passHref={true}>
             <button className={classes.productsButton}>Sprawdź produkty</button>
           </Link>
-          <Link href="/#formSection">
+          <Link href="/#formSection" passHref={true}>
             <button className={classes.ctaButton}>Napisz do nas</button>
           </Link>
         </div>

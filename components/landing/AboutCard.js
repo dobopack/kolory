@@ -10,7 +10,8 @@ function AboutCard(props) {
         <Image
           src={props.image}
           width={props.imgWidth}
-          height={props.imgHeight}></Image>
+          height={props.imgHeight}
+          alt={props.alt}></Image>
       </div>
       <h2>{props.header}</h2>
       <p>{props.paragraph}</p>

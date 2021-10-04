@@ -10,14 +10,15 @@ function Footer() {
       <div className={classes.footerWrapper}>
         <div className={classes.logoColumn}>
           <div className={classes.logo}>
-            <Link href="/">
-              <a href="/">
+            <Link href="/" passHref={true}>
+              <span>
                 <Image
                   src="/logo-white.svg"
+                  alt="Dobopack logo"
                   width={242}
                   height={70}
                   layout="fixed"></Image>
-              </a>
+              </span>
             </Link>
           </div>
           <p>Dobopack Trading sp. z o.o.</p>
@@ -29,6 +30,7 @@ function Footer() {
             <div className={classes.footerImage}>
               <Image
                 src="/footer-location.svg"
+                alt="Lokalizacja"
                 width={14}
                 height={20}
                 layout="fixed"></Image>
@@ -41,6 +43,7 @@ function Footer() {
             <div className={classes.footerImage}>
               <Image
                 src="/footer-phone.svg"
+                alt="Telefon stacjonarny"
                 width={19}
                 height={22}
                 layout="fixed"></Image>
@@ -51,6 +54,7 @@ function Footer() {
             <div className={classes.footerImage}>
               <Image
                 src="/footer-fax.svg"
+                alt="Fax"
                 width={20}
                 height={20}
                 layout="fixed"></Image>
@@ -63,6 +67,7 @@ function Footer() {
             <div className={classes.footerImage}>
               <Image
                 src="/footer-mobile.svg"
+                alt="Telefon komórkowy"
                 width={18}
                 height={18}
                 layout="fixed"></Image>
@@ -73,6 +78,7 @@ function Footer() {
             <div className={classes.footerImage}>
               <Image
                 src="/footer-mobile.svg"
+                alt="Telefon komórkowy"
                 width={18}
                 height={18}
                 layout="fixed"></Image>
@@ -83,6 +89,7 @@ function Footer() {
             <div className={classes.footerImage}>
               <Image
                 src="/footer-mail.svg"
+                alt="Mail"
                 width={20}
                 height={16}
                 layout="fixed"></Image>

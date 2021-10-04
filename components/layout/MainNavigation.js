@@ -8,14 +8,15 @@ function MainNavigation({ isMain }) {
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
-        <Link href="/">
-          <a href="/">
+        <Link href="/" passHref={true}>
+          <span>
             <Image
               src={isMain ? "/logo-white.svg" : "/logo-dark.svg"}
+              alt="Dobopack logo"
               width={242}
               height={70}
               layout="fixed"></Image>
-          </a>
+          </span>
         </Link>
       </div>
       <nav>
