@@ -2,7 +2,7 @@ const removeHash = () => {
   setTimeout(() => {
     // call removeFunction function after set timeout
     removeFunction();
-  }, 5);
+  }, 100);
 };
 
 const removeFunction = () => {

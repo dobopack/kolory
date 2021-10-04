@@ -4,6 +4,8 @@ import Link from "next/link";
 import Section from "../ui/Section";
 import classes from "./HeroSection.module.css";
 
+import removeHash from "../../removeHash";
+
 function HeroSection() {
   return (
     <div className={classes.hero}>
@@ -13,7 +15,7 @@ function HeroSection() {
           Aromaty, barwniki spożywcze, bazy do napojów i oleorezyny dla
           przemysłu
         </p>
-        <div className={classes.buttonSection}>
+        <div className={classes.buttonSection} onClick={removeHash}>
           <Link href="/#productSection">
             <button className={classes.productsButton}>Sprawdź produkty</button>
           </Link>
