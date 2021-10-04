@@ -1,0 +1,82 @@
+.container {
+  width: 80vw;
+  padding: 50px 10vw 15px 10vw;
+  background-color: var(--brown-color);
+}
+
+.footerWrapper {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  transition: opacity 0.2s ease-in-out;
+}
+
+.logo:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.logoColumn p {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 10px;
+}
+
+.secondColumn,
+.thirdColumn {
+  margin-top: 20px;
+}
+
+.footerRow {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.footerImage {
+  width: 25px;
+}
+
+.rowContent {
+  margin-left: 20px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.copyright {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 30px;
+}
+
+.footerWrapper address {
+  font-style: normal;
+}
+
+.footerWrapper address a,
+.footerWrapper address a:hover,
+.footerWrapper address a:active,
+.footerWrapper address a.active {
+  color: white;
+  text-decoration: none;
+}
+
+.copyright a,
+.copyright a:hover,
+.copyright a:active,
+.copyright a.active {
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+}
+
+@media (max-width: 1000px) {
+  .footerWrapper {
+    flex-direction: column;
+  }
+
+  .secondColumn {
+    margin-top: 50px;
+  }
+}
