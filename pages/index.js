@@ -35,7 +35,7 @@ export async function getStaticProps() {
   const { data } = await client.query({
     query: gql`
       query {
-        categories {
+        categories(where: { is_active: true }) {
           id
           name
           slug
@@ -53,6 +53,6 @@ export async function getStaticProps() {
     props: {
       categories,
     },
-    revalidate: 10,
+    revalidate: 1,
   };
 }
