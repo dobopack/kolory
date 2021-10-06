@@ -1,10 +1,13 @@
 import gql from "graphql-tag";
 import client from "../../apolloClient";
 
+import Section from "../../components/ui/Section";
+import Header from "../../components/ui/Header";
+
 export default function CategoryPage({ category }) {
   return (
-    <div>
-      <h1>{category.name}</h1>
+    <Section>
+      <Header>{category.name}</Header>
       <ul>
         {category.product.map((prod, i) => (
           <li key={i}>
@@ -12,7 +15,7 @@ export default function CategoryPage({ category }) {
           </li>
         ))}
       </ul>
-    </div>
+    </Section>
   );
 }
 
@@ -73,5 +76,6 @@ export async function getStaticProps({ params }) {
       category,
     },
     notFound,
+    revalidate: 1,
   };
 }
