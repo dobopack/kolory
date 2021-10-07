@@ -99,7 +99,7 @@ function Footer() {
         </address>
       </div>
       <p className={classes.copyright}>
-        @2021 Dobopack | <Link href="/polityka">Polityka prywatności</Link>
+        ©2021 Dobopack | <Link href="/polityka">Polityka prywatności</Link>
       </p>
     </footer>
   );
