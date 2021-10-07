@@ -6,7 +6,7 @@ import classes from "./ProductCard.module.css";
 
 function ProductCard({ category }) {
   return (
-    <Link href={category.slug} passHref={true}>
+    <Link href={`/${category.slug}`} passHref={true}>
       <div className={classes.cardContainer}>
         <div className={classes.imageContainer}>
           <Image src={category.image.url} alt={category.name} layout="fill" />
