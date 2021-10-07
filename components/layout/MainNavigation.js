@@ -5,13 +5,14 @@ import Image from "next/image";
 import removeHash from "../../removeHash";
 
 function MainNavigation({ isMain }) {
+  const logo = isMain ? "/logo-white.svg" : "/logo-dark.svg";
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
         <Link href="/" passHref={true}>
           <span>
             <Image
-              src={isMain ? "/logo-white.svg" : "/logo-dark.svg"}
+              src={logo}
               alt="Dobopack logo"
               width={242}
               height={70}
