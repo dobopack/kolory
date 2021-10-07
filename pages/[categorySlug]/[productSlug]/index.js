@@ -1,11 +1,24 @@
+import Head from "next/head";
+
 import gql from "graphql-tag";
 import client from "../../../apolloClient";
 
 export default function ProductPage({ product }) {
   return (
-    <div>
+    <>
+      <Head>
+        <title>
+          Dobopack - dystrybutor dodatków barwiących i smakowo-zapachowych do
+          żywności
+        </title>
+        <meta
+          name="description"
+          content="Dobopack Trading - oferujemy dodatki do żywności dla producentów: barwniki spożywcze naturalne i syntetyczne, aromaty, oleorezyny, olejki eteryczne, bazy do napojów. +48 22 633 96 27"
+        />
+        <link rel="icon" href="/favicon.svg" />
+      </Head>
       <h1>{product.name}</h1>
-    </div>
+    </>
   );
 }
 
