@@ -10,6 +10,7 @@ function Input(props) {
         id={props.id}
         name={props.name}
         value={props.value}
+        required={props.required}
         onChange={props.onChangeText}
         placeholder={props.placeholder}
         rows={props.rows}>

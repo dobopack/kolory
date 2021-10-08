@@ -12,6 +12,9 @@ function Input(props) {
         value={props.value}
         onChange={props.onChangeText}
         type={props.type}
+        minLength={props.minLength}
+        maxLength={props.maxLength}
+        pattern={props.pattern}
         placeholder={props.placeholder}
         rows={props.rows}
         required={props.required}>
