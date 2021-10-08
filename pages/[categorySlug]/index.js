@@ -58,6 +58,8 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const slug = params.categorySlug;
 
+  const newsQuery = slug === "nowosci" ? "last: 8, " : "";
+
   const { data } = await client.query({
     query: gql`
       query Category($slug: String!) {
@@ -66,7 +68,7 @@ export async function getStaticProps({ params }) {
           name
           slug
           description
-          product(where: { is_active: true }) {
+          product(${newsQuery}where: { is_active: true }) {
             id
             name
             slug
