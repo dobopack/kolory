@@ -3,6 +3,8 @@ import Head from "next/head";
 import gql from "graphql-tag";
 import client from "../../../apolloClient";
 
+import ProductSection from "../../../components/products/ProductSection";
+
 export default function ProductPage({ product }) {
   return (
     <>
@@ -17,7 +19,7 @@ export default function ProductPage({ product }) {
         />
         <link rel="icon" href="/favicon.svg" />
       </Head>
-      <h1>{product.name}</h1>
+      <ProductSection product={product} />
     </>
   );
 }
