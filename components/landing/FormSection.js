@@ -29,23 +29,23 @@ function FormSection() {
       content: event.target.content.value,
     };
 
-    const response = await fetch("/api/submit-form", {
-      method: "POST",
-      body: JSON.stringify(record),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    // const response = await fetch("/api/submit-form", {
+    //   method: "POST",
+    //   body: JSON.stringify(record),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // });
 
-    const data = await response.json();
+    // const data = await response.json();
 
-    setName("");
-    setEmail("");
-    setPhone("");
-    setSubject("");
-    setContent("");
+    // setName("");
+    // setEmail("");
+    // setPhone("");
+    // setSubject("");
+    // setContent("");
 
-    showNotify();
+    // showNotify();
   };
 
   const showNotify = () => {
@@ -87,7 +87,10 @@ function FormSection() {
             <Input
               id="phone"
               name="phone"
-              type="phone"
+              type="tel"
+              pattern="[- +0-9]+"
+              minLength={9}
+              maxLength={15}
               value={phone}
               onChangeText={(e) => {
                 setPhone(e.target.value);
