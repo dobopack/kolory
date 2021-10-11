@@ -166,7 +166,7 @@
   .navbar {
     width: 100%;
     justify-content: center;
-    display: flex;
+    display: none;
     background-color: rgba(50, 35, 28, 1);
     animation: growUp 300ms ease-in-out forwards;
     transform-origin: top center;
