@@ -10,12 +10,12 @@
 
 .imageContainer {
   position: relative;
-  width: 40%;
+  width: 50%;
   min-height: 40vh;
 }
 
 .shortDescription {
-  width: 60%;
+  width: 50%;
   margin-left: 100px;
   font-size: 18px;
   line-height: 182%;
