@@ -27,6 +27,11 @@ function MainNavigation({ isMain }) {
     ? `${classes.bar} ${classes.barActive}`
     : classes.bar;
 
+  const linkClick = () => {
+    setToggleClass(false);
+    removeHash();
+  };
+
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
@@ -53,21 +58,21 @@ function MainNavigation({ isMain }) {
       <nav className={toggleNavbarClass}>
         <ul>
           <li
-            onClick={removeHash}
+            onClick={linkClick}
             className={`${classes.navLinks} ${
               isMain ? classes.whiteLinks : classes.darkLinks
             }`}>
             <Link href="/#aboutSection">O nas</Link>
           </li>
           <li
-            onClick={removeHash}
+            onClick={linkClick}
             className={`${classes.navLinks} ${
               isMain ? classes.whiteLinks : classes.darkLinks
             }`}>
             <Link href="/#productSection">Produkty</Link>
           </li>
           <li
-            onClick={removeHash}
+            onClick={linkClick}
             className={`${classes.navLinks} ${
               isMain ? classes.whiteLinks : classes.darkLinks
             }`}>
@@ -77,7 +82,7 @@ function MainNavigation({ isMain }) {
             className={`${classes.ctaButton} ${
               isMain ? classes.whiteLinks : classes.darkLinks
             }`}
-            onClick={removeHash}>
+            onClick={linkClick}>
             <Link href="/#formSection">Napisz do nas</Link>
           </li>
         </ul>
