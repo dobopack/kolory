@@ -8,6 +8,12 @@
   margin: 0 10vw 0 10vw;
 }
 
+.logoContainer {
+  position: relative;
+  height: 70px;
+  width: 242px;
+}
+
 .logo {
   transition: opacity 0.2s ease-in-out;
 }
@@ -82,4 +88,133 @@
 
 .whiteLinks a {
   color: white;
+}
+
+.toggleButton {
+  position: absolute;
+  top: 50px;
+  right: calc(10vw - 10px);
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+}
+
+.toggleButton .bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  transition: opacity 0.1s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.bar.darkBar {
+  background-color: var(--brown-color);
+}
+
+.barActive.bar1 {
+  transform: rotate(-45deg) translate(-7px, 7px);
+}
+
+.barActive.bar2 {
+  opacity: 0;
+}
+
+.barActive.bar3 {
+  transform: rotate(45deg) translate(-6px, -6px);
+}
+
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes growUp {
+  0% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .darkLinks a,
+  .darkLinks a:hover,
+  .darkLinks a:active {
+    color: white;
+  }
+
+  .toggleButton {
+    display: flex;
+  }
+
+  .header {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: white;
+  }
+
+  .navbar {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    background-color: rgba(50, 35, 28, 1);
+    animation: growUp 300ms ease-in-out forwards;
+    transform-origin: top center;
+  }
+
+  .navbar.navbarActive {
+    display: flex;
+    background-color: rgba(50, 35, 28, 1);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    animation: growDown 300ms ease-in-out forwards;
+    transform-origin: top center;
+  }
+
+  .logo {
+    margin-top: 27px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar ul li {
+    margin: 20px 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .logoContainer {
+    width: 200px;
+  }
+
+  .toggleButton {
+    padding: 10px;
+    width: 25px;
+    height: 18px;
+  }
+
+  .toggleButton .bar {
+    height: 2px;
+  }
+
+  .barActive.bar1 {
+    transform: rotate(-45deg) translate(-5px, 7px);
+  }
+
+  .barActive.bar3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
 }

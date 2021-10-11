@@ -6,3 +6,12 @@
 .categorySection {
   margin: 50px 0 200px;
 }
+
+@media (max-width: 768px) {
+  .categorySection {
+    margin: 30px 0 120px;
+  }
+  .categorySection p {
+    font-size: 15px;
+  }
+}

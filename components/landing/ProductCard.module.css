@@ -1,8 +1,13 @@
 .cardContainer {
   display: flex;
+  flex: 0 0 30%;
+  justify-content: center;
+}
+
+.cardInner {
   flex-direction: column;
-  width: 30%;
-  height: 20vw;
+  width: 350px;
+  height: 310px; /* 1,13 */
   align-items: center;
   justify-content: flex-start;
   margin: 30px 15px;
@@ -32,4 +37,59 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 1430px) {
+  .cardInner {
+    width: 300px;
+    height: 265px;
+  }
+
+  .headerContainer h2 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1240px) {
+  .cardInner {
+    width: 250px;
+    height: 220px;
+  }
+
+  .headerContainer h2 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .cardInner {
+    width: 200px;
+    height: 177px;
+  }
+
+  .headerContainer h2 {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .cardInner {
+    width: 250px;
+    height: 220px;
+  }
+
+  .headerContainer h2 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 300px) {
+  .cardInner {
+    width: 200px;
+    height: 177px;
+  }
+
+  .headerContainer h2 {
+    font-size: 14px;
+  }
 }

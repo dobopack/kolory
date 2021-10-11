@@ -80,3 +80,14 @@
     margin-top: 50px;
   }
 }
+
+@media (max-width: 425px) {
+  .container p,
+  .container a {
+    font-size: 14px;
+  }
+
+  .copyright {
+    font-size: 10px;
+  }
+}

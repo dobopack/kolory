@@ -35,3 +35,13 @@
 .buttonDisabled:hover {
   background-color: rgba(120, 189, 111, 0.3);
 }
+
+@media (max-width: 425px) {
+  .pagination {
+    flex-direction: column;
+    align-items: center;
+  }
+  .button {
+    margin: 10px 0;
+  }
+}

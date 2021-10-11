@@ -36,3 +36,46 @@
   display: flex;
   justify-content: center;
 }
+
+@media (max-width: 768px) {
+  .imageRow {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+  }
+  .imageContainer {
+    width: 80%;
+    margin-bottom: 40px;
+  }
+  .shortDescription {
+    margin-left: 0;
+    width: 100%;
+  }
+  .longDescription {
+    margin: 60px 0 0;
+  }
+
+  .container {
+    margin-bottom: 100px;
+  }
+}
+
+@media (max-width: 425px) {
+  .imageRow {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+  }
+  .imageContainer {
+    width: 100%;
+    min-height: 25vh;
+    margin-bottom: 40px;
+  }
+  .shortDescription {
+    margin-left: 0;
+    width: 100%;
+  }
+  .longDescription {
+    margin: 60px 0 0;
+  }
+}

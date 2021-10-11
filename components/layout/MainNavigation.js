@@ -1,26 +1,56 @@
-import classes from "./MainNavigation.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
+
+import classes from "./MainNavigation.module.css";
 
 import removeHash from "../../removeHash";
 
 function MainNavigation({ isMain }) {
   const logo = isMain ? "/logo-white.svg" : "/logo-dark.svg";
+
+  const [toggleClass, setToggleClass] = useState(false);
+
+  const toggleButton = () => {
+    setToggleClass(!toggleClass);
+  };
+
+  const toggleButtonClass = toggleClass
+    ? `${classes.toggleButton} ${classes.toggleButtonActive}`
+    : classes.toggleButton;
+
+  const toggleNavbarClass = toggleClass
+    ? `${classes.navbar} ${classes.navbarActive}`
+    : classes.navbar;
+
+  const toggleBarClass = toggleClass
+    ? `${classes.bar} ${classes.barActive}`
+    : classes.bar;
+
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
         <Link href="/" passHref={true}>
-          <span>
-            <Image
-              src={logo}
-              alt="Dobopack logo"
-              width={242}
-              height={70}
-              layout="fixed"></Image>
-          </span>
+          <div className={classes.logoContainer}>
+            <Image src={logo} alt="Dobopack logo" layout="fill"></Image>
+          </div>
         </Link>
       </div>
-      <nav>
+      <div className={toggleButtonClass} onClick={toggleButton}>
+        <span
+          className={`${toggleBarClass} ${classes.bar1} ${
+            !isMain ? classes.darkBar : ""
+          }`}></span>
+        <span
+          className={`${toggleBarClass} ${classes.bar2} ${
+            !isMain ? classes.darkBar : ""
+          }`}></span>
+        <span
+          className={`${toggleBarClass} ${classes.bar3} ${
+            !isMain ? classes.darkBar : ""
+          }`}></span>
+      </div>
+      <nav className={toggleNavbarClass}>
         <ul>
           <li
             onClick={removeHash}

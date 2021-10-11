@@ -12,7 +12,7 @@
 
 .heroContent {
   display: flex;
-  justify-content: center;
+  margin-top: 350px;
   flex-direction: column;
   width: 800px;
 }
@@ -62,4 +62,100 @@
   padding: 14px 41px;
   font-weight: 500;
   color: var(--brown-color) !important;
+}
+
+@media (max-width: 1050px) {
+  .heroContent {
+    margin-top: 300px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .heroContent h1 {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    background: url("/hero-image.jpg") rgba(50, 35, 28, 0.5);
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-position: right;
+    margin-right: -100px;
+  }
+
+  .heroContent {
+    margin-top: 250px;
+  }
+}
+
+@media (max-width: 650px) {
+  .heroContent h1 {
+    font-size: 50px;
+  }
+
+  .heroContent p {
+    width: 340px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    margin-right: -200px;
+    height: 850px;
+  }
+
+  .heroContent {
+    width: 350px;
+  }
+
+  .heroContent h1 {
+    font-size: 40px;
+  }
+
+  .heroContent p {
+    width: 340px;
+    font-size: 18px;
+  }
+
+  .buttonSection {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .productsButton {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .heroContent {
+    width: 300px;
+    margin-top: 200px;
+  }
+
+  .heroContent h1 {
+    font-size: 40px;
+  }
+
+  .heroContent p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 350px) {
+  .heroContent {
+    width: 250px;
+  }
+
+  .heroContent h1 {
+    font-size: 35px;
+  }
+
+  .heroContent p {
+    width: 250px;
+  }
 }
