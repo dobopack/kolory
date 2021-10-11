@@ -72,6 +72,7 @@ export async function getStaticProps({ params }) {
             id
             name
             slug
+            color
             image {
               url
             }
