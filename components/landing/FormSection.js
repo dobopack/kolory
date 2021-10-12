@@ -29,23 +29,23 @@ function FormSection() {
       content: event.target.content.value,
     };
 
-    // const response = await fetch("/api/submit-form", {
-    //   method: "POST",
-    //   body: JSON.stringify(record),
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // });
+    const response = await fetch("/api/submit-form", {
+      method: "POST",
+      body: JSON.stringify(record),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-    // const data = await response.json();
+    const data = await response.json();
 
-    // setName("");
-    // setEmail("");
-    // setPhone("");
-    // setSubject("");
-    // setContent("");
+    setName("");
+    setEmail("");
+    setPhone("");
+    setSubject("");
+    setContent("");
 
-    // showNotify();
+    showNotify();
   };
 
   const showNotify = () => {
