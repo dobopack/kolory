@@ -4,8 +4,6 @@ import Image from "next/image";
 import aboutPartners from "../../public/about-partners.svg";
 import aboutControl from "../../public/about-control.svg";
 import aboutRequirements from "../../public/about-requirements.svg";
-import kancorLogo from "../../public/kancor-logo.jpg";
-import akrasLogo from "../../public/akras-logo.jpg";
 
 import Section from "../ui/Section";
 import Header from "../ui/Header";
@@ -53,23 +51,6 @@ function AboutSection() {
           paragraph="Dzięki wewnętrznemu systemowi HACCP zapewniamy odpowiedni sposób
             magazynowania substancji dodatkowych i jego stałą kontrolę."
         />
-      </div>
-      <div className={classes.partnersSection}>
-        <p>Główni partnerzy</p>
-        <div className={classes.partnerImage}>
-          <Image
-            src={kancorLogo}
-            width={212}
-            height={50}
-            alt="Kancor Logo"></Image>
-        </div>
-        <div className={classes.partnerImage}>
-          <Image
-            src={akrasLogo}
-            width={179}
-            height={50}
-            alt="Akras Logo"></Image>
-        </div>
       </div>
     </Section>
   );
