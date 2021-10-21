@@ -1,4 +1,6 @@
 .container {
+  max-width: 1500px;
+  margin: auto;
   margin-bottom: 200px;
 }
 
@@ -15,6 +17,8 @@
 }
 
 .shortDescription {
+  display: flex;
+  align-items: flex-end;
   width: 50%;
   margin-left: 100px;
   font-size: 18px;
