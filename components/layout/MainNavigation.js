@@ -69,7 +69,7 @@ function MainNavigation({ isMain }) {
             className={`${classes.navLinks} ${
               isMain ? classes.whiteLinks : classes.darkLinks
             }`}>
-            <Link href="/#productSection">Produkty</Link>
+            <Link href="/#productSection">Oferta</Link>
           </li>
           <li
             onClick={linkClick}

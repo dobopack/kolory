@@ -10,46 +10,37 @@ import Header from "../ui/Header";
 import AboutCard from "./AboutCard";
 import classes from "./AboutSection.module.css";
 
-function AboutSection() {
+function AboutSection({ config }) {
   return (
     <Section className={classes.aboutSection} id="aboutSection">
       <Header>Dlaczego my?</Header>
-      <p>
-        Jesteśmy aktywni na rynku od 1992 roku, zaopatrując w najwyższej jakości
-        dodatki odpowiedzialne za kolor smak i zapach gotowych produktów
-        spożywczych i napojów. Głównymi naszymi produktami są barwniki, aromaty
-        i bazy napojowe, olejki eteryczne i oleorezyny.
-      </p>
+      <p>{config.about_description}</p>
       <div className={classes.cardSection}>
         <AboutCard
           className={classes.firstCard}
-          image={aboutPartners}
-          imgHeight={80}
-          imgWidth={90}
-          alt="Partnerzy"
-          header="Partnerzy"
-          paragraph="Współpracujemy z międzynarodowymi producentami aromatów spożywczych
-            oraz baz do napojów."
+          image={config.card1_image.url}
+          imgHeight={110}
+          imgWidth={110}
+          alt={config.card1_header}
+          header={config.card1_header}
+          paragraph={config.card1_content}
         />
         <AboutCard
-          image={aboutRequirements}
-          imgHeight={80}
-          imgWidth={93}
-          alt="Wymagania jakościowe"
-          header="Wymagania jakościowe"
-          paragraph="Oferowane przez nas dodatki spożywcze są produkowane przez naszych
-            dostawców w zgodzie z najnowszymi przepisami oraz certyfikacjami
-            kontroli jakości produkcji."
+          image={config.card2_image.url}
+          imgHeight={110}
+          imgWidth={110}
+          alt={config.card2_header}
+          header={config.card2_header}
+          paragraph={config.card2_content}
         />
         <AboutCard
           className={classes.lastCard}
-          image={aboutControl}
-          imgHeight={80}
+          image={config.card3_image.url}
+          imgHeight={110}
           imgWidth={110}
-          alt="Kontrola warunków magazynowania"
-          header="Kontrola warunków magazynowania"
-          paragraph="Dzięki wewnętrznemu systemowi HACCP zapewniamy odpowiedni sposób
-            magazynowania substancji dodatkowych i jego stałą kontrolę."
+          alt={config.card3_header}
+          header={config.card3_header}
+          paragraph={config.card3_content}
         />
       </div>
     </Section>
