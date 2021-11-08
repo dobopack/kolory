@@ -10,7 +10,8 @@
 
 .productsSection > p {
   margin: 80px 40px;
-  text-align: center;
+  width: 100%;
+  text-align: left;
 }
 
 .cardsBox {
