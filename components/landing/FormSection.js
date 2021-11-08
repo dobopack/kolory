@@ -58,7 +58,9 @@ function FormSection() {
   return (
     <Section className={classes.container} id="formSection">
       <Header className={classes.header}>Skontaktuj się z nami</Header>
-      <p>Zostaw nam wiadomość a wrócimy do Ciebie z indywidualną ofertą.</p>
+      <p className={classes.sectionDescription}>
+        Zostaw nam wiadomość a wrócimy do Ciebie z indywidualną ofertą.
+      </p>
       <form onSubmit={(event) => handleSubmit(event)} className={classes.form}>
         <div className={classes.columnsWrapper}>
           <div className={classes.firstColumn}>

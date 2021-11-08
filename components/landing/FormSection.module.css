@@ -10,6 +10,11 @@
   margin-bottom: 80px;
 }
 
+.sectionDescription {
+  width: 100%;
+  text-align: left;
+}
+
 .form {
   width: 100%;
   max-width: 1300px;
