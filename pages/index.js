@@ -1,6 +1,8 @@
 import gql from "graphql-tag";
 import Head from "next/head";
 import client from "../apolloClient";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 import HeroSection from "../components/landing/HeroSection";
 import AboutSection from "../components/landing/AboutSection";
@@ -8,6 +10,16 @@ import ProductsSection from "../components/landing/ProductsSection";
 import FormSection from "../components/landing/FormSection";
 
 export default function Home({ categories, config }) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const queryTarget = router.query.t;
+    if (queryTarget) {
+      const element = document.querySelector(`#${queryTarget}`);
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+
   return (
     <div>
       <Head>
