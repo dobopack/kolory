@@ -7,10 +7,19 @@ import ReturnButton from "../../components/ui/ReturnButton";
 
 import classes from "./ProductSection.module.css";
 
+import imageTemplate from "../../public/image-template.svg";
+
 function ProductSection({ product }) {
   const router = useRouter();
 
   const categorySlug = router.query.categorySlug;
+
+  let imageUrl = "";
+  if (product.image) {
+    imageUrl = product.image.url;
+  } else {
+    imageUrl = imageTemplate;
+  }
 
   return (
     <Section className={classes.container}>
@@ -18,7 +27,7 @@ function ProductSection({ product }) {
       <div className={classes.imageRow}>
         <div className={classes.imageContainer}>
           <Image
-            src={product.image.url}
+            src={imageUrl}
             alt={product.name}
             layout="fill"
             objectFit="contain"></Image>
