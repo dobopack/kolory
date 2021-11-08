@@ -41,6 +41,10 @@
   text-align: center;
 }
 
+.headerContainer h2 {
+  line-height: 120%;
+}
+
 @media (max-width: 1430px) {
   .cardInner {
     width: 300px;
