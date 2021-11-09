@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Section from "../../components/ui/Section";
 import Header from "../../components/ui/Header";
 import ReturnButton from "../../components/ui/ReturnButton";
+import ContactButton from "../../components/ui/ContactButton";
 
 import classes from "./ProductSection.module.css";
 
@@ -38,7 +39,12 @@ function ProductSection({ product }) {
       </div>
       <div className={classes.longDescription}>{product.longDescription}</div>
       <div className={classes.buttonWrapper}>
-        <ReturnButton href={`/${categorySlug}`}>wróć do produktów</ReturnButton>
+        <ReturnButton href={`/${categorySlug}`}>cofnij</ReturnButton>
+        <ContactButton
+          href={`/?t=formSection`}
+          className={classes.contactButton}>
+          wyślij zapytanie
+        </ContactButton>
       </div>
     </Section>
   );

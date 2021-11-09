@@ -41,6 +41,10 @@
   justify-content: center;
 }
 
+.contactButton {
+  margin-left: 30px;
+}
+
 @media (max-width: 768px) {
   .imageRow {
     flex-direction: column;
