@@ -61,7 +61,7 @@
 
 @media (max-width: 425px) {
   .aboutSection {
-    margin-top: 60px;
+    padding-top: 60px;
   }
 
   .aboutSection > p {
@@ -69,7 +69,7 @@
     font-size: 14px;
   }
 
-  .cardSection {
-    margin-bottom: 60px;
+  .aboutSection {
+    padding-bottom: 60px;
   }
 }
