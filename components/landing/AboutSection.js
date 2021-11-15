@@ -23,7 +23,6 @@ function AboutSection({ config }) {
   return (
     <Section className={classes.aboutSection} id="aboutSection">
       <Header>Dlaczego my?</Header>
-      <p>{config.about_description}</p>
       <div className={classes.cardSection}>
         <AboutCard
           className={classes.firstCard}
@@ -52,6 +51,7 @@ function AboutSection({ config }) {
           paragraph={config.card3_content}
         />
       </div>
+      <p>{config.about_description}</p>
     </Section>
   );
 }

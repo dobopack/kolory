@@ -4,6 +4,8 @@
   flex-direction: column;
   align-items: center;
   z-index: 1;
+  padding-bottom: 120px;
+  background-color: #f8f8f8;
 }
 
 .aboutSection > p {
@@ -14,12 +16,11 @@
 
 .cardSection {
   width: 100%;
-  margin-top: 70px;
+  margin-top: 80px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 120px;
 }
 
 .firstCard::before {

@@ -35,8 +35,8 @@ export default function Home({ categories, config }) {
       </Head>
       <main>
         <HeroSection config={config} />
-        <AboutSection config={config} />
         <ProductsSection categories={categories} config={config} />
+        <AboutSection config={config} />
         <FormSection config={config} />
       </main>
     </div>
