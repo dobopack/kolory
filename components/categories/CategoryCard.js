@@ -28,13 +28,13 @@ function CategoryCard({ category, product }) {
   return (
     <div className={classes.cardWrapper}>
       <Link href={`/${category.slug}/${product.slug}`} passHref={true}>
-        <div className={classes.cardInner}>
+        <a className={classes.cardInner}>
           {colorCircle}
           <div className={classes.cardImage}>
             <Image src={imageUrl} alt={product.name} layout="fill" />
           </div>
           <div className={classes.cardDescription}>{product.name}</div>
-        </div>
+        </a>
       </Link>
     </div>
   );

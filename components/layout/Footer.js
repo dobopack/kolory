@@ -11,14 +11,14 @@ function Footer() {
         <div className={classes.logoColumn}>
           <div className={classes.logo}>
             <Link href="/" passHref={true}>
-              <span>
+              <a>
                 <Image
                   src="/logo-white.svg"
                   alt="Dobopack logo"
                   width={242}
                   height={70}
                   layout="fixed"></Image>
-              </span>
+              </a>
             </Link>
           </div>
           <p>Dobopack Trading sp. z o.o.</p>

@@ -128,16 +128,17 @@ function FormSection() {
         <p className={classes.caption}>
           Prosimy o zapoznanie się z naszą{" "}
           <Link href="/polityka" passHref={true}>
-            <span className={`${classes.captionBold} ${classes.pointer}`}>
-              polityką prywatności
-            </span>
-          </Link>{" "}
-          oraz
+            <a
+              className={`${classes.linkCaption} ${classes.captionBold} ${classes.pointer}`}>
+              polityką prywatności{" "}
+            </a>
+          </Link>
+          oraz{" "}
           <Link href="/ochrona_danych" passHref={true}>
-            <span className={`${classes.captionBold} ${classes.pointer}`}>
-              {" "}
+            <a
+              className={`${classes.linkCaption} ${classes.captionBold} ${classes.pointer}`}>
               ochrony danych osobowych
-            </span>
+            </a>
           </Link>
           . Korzystając z formularza kontaktowego zgadzasz się na przechowywanie
           podanych przez Ciebie danych w bazie danych firmy{" "}

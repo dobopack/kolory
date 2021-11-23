@@ -16,7 +16,7 @@ function ProductCard({ category }) {
 
   return (
     <Link href={`/${category.slug}`} passHref={true}>
-      <div className={classes.cardContainer}>
+      <a className={classes.cardContainer}>
         <div className={classes.cardInner}>
           <div className={classes.imageContainer}>
             <Image src={imageUrl} alt={category.name} layout="fill" />
@@ -25,7 +25,7 @@ function ProductCard({ category }) {
             <h2>{category.name}</h2>
           </div>
         </div>
-      </div>
+      </a>
     </Link>
   );
 }

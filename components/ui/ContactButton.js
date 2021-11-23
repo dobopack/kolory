@@ -10,7 +10,7 @@ import removeHash from "../../removeHash";
 function ContactButton(props) {
   return (
     <Link href={props.href} passHref={true}>
-      <div
+      <a
         className={`${classes.wrapper} ${
           props.className ? props.className : ""
         }`}
@@ -19,7 +19,7 @@ function ContactButton(props) {
           <Image src={mailIcon} width={24} height={24} alt="Mail"></Image>
         </div>
         <span className={classes.text}>{props.children}</span>
-      </div>
+      </a>
     </Link>
   );
 }

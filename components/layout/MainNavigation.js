@@ -36,9 +36,11 @@ function MainNavigation({ isMain }) {
     <header className={classes.header}>
       <div className={classes.logo}>
         <Link href="/" passHref={true}>
-          <div className={classes.logoContainer}>
-            <Image src={logo} alt="Dobopack logo" layout="fill"></Image>
-          </div>
+          <a>
+            <div className={classes.logoContainer}>
+              <Image src={logo} alt="Dobopack logo" layout="fill"></Image>
+            </div>
+          </a>
         </Link>
       </div>
       <div className={toggleButtonClass} onClick={toggleButton}>

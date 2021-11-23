@@ -48,6 +48,13 @@
   line-height: 140%;
 }
 
+.linkCaption {
+  font-family: "Cabin";
+  font-size: 15px;
+  color: rgba(26, 18, 14, 0.5);
+  line-height: 140%;
+}
+
 .captionBold {
   color: rgba(26, 18, 14, 0.8);
 }
