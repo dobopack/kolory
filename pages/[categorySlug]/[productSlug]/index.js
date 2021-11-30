@@ -76,11 +76,13 @@ export async function getStaticProps({ params }) {
   const { products } = data;
 
   const product = products[0];
+  const notFound = product ? false : true;
 
   return {
     props: {
       product,
     },
+    notFound,
     revalidate: 1,
   };
 }
