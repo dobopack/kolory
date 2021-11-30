@@ -23,6 +23,10 @@
   transition: background-color 0.2s ease-in-out;
 }
 
+.button a {
+  color: white;
+}
+
 .button:hover {
   background-color: rgba(120, 189, 111, 0.7);
 }

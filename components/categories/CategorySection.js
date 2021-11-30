@@ -23,6 +23,7 @@ function CategorySection({ category }) {
     setProductsArray(
       category.product.slice((newCurrentPage - 1) * 8, newCurrentPage * 8)
     );
+    changeUrl(newCurrentPage);
   };
 
   const setPreviousPage = () => {
@@ -31,6 +32,15 @@ function CategorySection({ category }) {
     setCurrentPage(newCurrentPage);
     setProductsArray(
       category.product.slice((newCurrentPage - 1) * 8, newCurrentPage * 8)
+    );
+    changeUrl(newCurrentPage);
+  };
+
+  const changeUrl = (page) => {
+    history.replaceState(
+      "",
+      document.title,
+      window.location.origin + window.location.pathname + `?p=${page}`
     );
   };
 
@@ -56,10 +66,10 @@ function CategorySection({ category }) {
       {showPagination && (
         <div className={classes.pagination}>
           <button className={previousButtonClass} onClick={setPreviousPage}>
-            Poprzednia
+            <a>Poprzednia</a>
           </button>
           <button className={nextButtonClass} onClick={setNextPage}>
-            Następna
+            <a>Następna</a>
           </button>
         </div>
       )}
