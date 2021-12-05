@@ -9,7 +9,7 @@ import CategorySection from "../../components/categories/CategorySection";
 
 import classes from "../../styles/category.module.css";
 
-export default function CategoryPage({ category }) {
+export default function CategoryPage({ category, slug }) {
   return (
     <>
       <Head>
@@ -26,7 +26,7 @@ export default function CategoryPage({ category }) {
       <Section className={classes.categorySection}>
         <Header>{category.name}</Header>
         <p className={classes.description}>{category.description}</p>
-        <CategorySection category={category} />
+        <CategorySection category={category} slug={slug} />
       </Section>
     </>
   );
@@ -91,6 +91,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       category,
+      slug,
     },
     notFound,
     revalidate: 1,
