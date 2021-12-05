@@ -5,7 +5,7 @@ import CategoryCard from "./CategoryCard";
 
 import classes from "./CategorySection.module.css";
 
-function CategorySection({ category }) {
+function CategorySection({ category, slug }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [maxPage, setMaxPage] = useState(1);
   const [productsArray, setProductsArray] = useState(
@@ -13,46 +13,28 @@ function CategorySection({ category }) {
   );
 
   useEffect(() => {
-    setMaxPage(Math.ceil(category.product.length / 8));
+    const maxPage = Math.ceil(category.product.length / 8);
+
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+
+    let queryPage;
+    if (params.p) {
+      if (+params.p < 1 || +params.p > maxPage) {
+        queryPage = 1;
+      } else {
+        queryPage = +params.p;
+      }
+    } else {
+      queryPage = 1;
+    }
+
+    setCurrentPage(queryPage);
+    setProductsArray(
+      category.product.slice((queryPage - 1) * 8, queryPage * 8)
+    );
+    setMaxPage(maxPage);
   }, [category.product.length]);
-
-  const setNextPage = () => {
-    if (currentPage >= maxPage) return;
-    const newCurrentPage = currentPage + 1;
-    setCurrentPage(newCurrentPage);
-    setProductsArray(
-      category.product.slice((newCurrentPage - 1) * 8, newCurrentPage * 8)
-    );
-    changeUrl(newCurrentPage);
-  };
-
-  const setPreviousPage = () => {
-    if (currentPage <= 1) return;
-    const newCurrentPage = currentPage - 1;
-    setCurrentPage(newCurrentPage);
-    setProductsArray(
-      category.product.slice((newCurrentPage - 1) * 8, newCurrentPage * 8)
-    );
-    changeUrl(newCurrentPage);
-  };
-
-  const changeUrl = (page) => {
-    history.replaceState(
-      "",
-      document.title,
-      window.location.origin + window.location.pathname + `?p=${page}`
-    );
-  };
-
-  const previousButtonClass =
-    currentPage <= 1
-      ? `${classes.button} ${classes.buttonDisabled}`
-      : classes.button;
-
-  const nextButtonClass =
-    currentPage >= maxPage
-      ? `${classes.button} ${classes.buttonDisabled}`
-      : classes.button;
 
   const showPagination = productsArray.length > 0 && maxPage > 1 ? true : false;
 
@@ -65,12 +47,27 @@ function CategorySection({ category }) {
       </div>
       {showPagination && (
         <div className={classes.pagination}>
-          <button className={previousButtonClass} onClick={setPreviousPage}>
-            <a>Poprzednia</a>
-          </button>
-          <button className={nextButtonClass} onClick={setNextPage}>
-            <a>Następna</a>
-          </button>
+          {currentPage > 1 && (
+            <button className={classes.button}>
+              <a href={`/${slug}/?p=${currentPage - 1}`}>Poprzednia</a>
+            </button>
+          )}
+          {currentPage <= 1 && (
+            <button className={`${classes.button} ${classes.buttonDisabled}`}>
+              Poprzednia
+            </button>
+          )}
+          <span className={classes.pageIndicator}>{currentPage}</span>
+          {currentPage < maxPage && (
+            <button className={classes.button}>
+              <a href={`/${slug}/?p=${currentPage + 1}`}>Następna</a>
+            </button>
+          )}
+          {currentPage >= maxPage && (
+            <button className={`${classes.button} ${classes.buttonDisabled}`}>
+              Następna
+            </button>
+          )}
         </div>
       )}
     </>
