@@ -48,9 +48,11 @@ function CategorySection({ category, slug }) {
       {showPagination && (
         <div className={classes.pagination}>
           {currentPage > 1 && (
-            <button className={classes.button}>
-              <a href={`/${slug}/?p=${currentPage - 1}`}>Poprzednia</a>
-            </button>
+            <a
+              href={`/${slug}/?p=${currentPage - 1}`}
+              className={classes.button}>
+              Poprzednia
+            </a>
           )}
           {currentPage <= 1 && (
             <button className={`${classes.button} ${classes.buttonDisabled}`}>
@@ -59,9 +61,11 @@ function CategorySection({ category, slug }) {
           )}
           <span className={classes.pageIndicator}>{currentPage}</span>
           {currentPage < maxPage && (
-            <button className={classes.button}>
-              <a href={`/${slug}/?p=${currentPage + 1}`}>Następna</a>
-            </button>
+            <a
+              href={`/${slug}/?p=${currentPage + 1}`}
+              className={classes.button}>
+              Następna
+            </a>
           )}
           {currentPage >= maxPage && (
             <button className={`${classes.button} ${classes.buttonDisabled}`}>
