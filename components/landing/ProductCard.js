@@ -22,7 +22,7 @@ function ProductCard({ category }) {
             <Image src={imageUrl} alt={category.name} layout="fill" />
           </div>
           <div className={classes.headerContainer}>
-            <h2>{category.name}</h2>
+            <h3>{category.name}</h3>
           </div>
         </div>
       </a>

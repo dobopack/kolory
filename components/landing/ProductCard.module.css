@@ -41,8 +41,10 @@
   text-align: center;
 }
 
-.headerContainer h2 {
+.headerContainer h3 {
   line-height: 120%;
+  font-size: 22px;
+  font-weight: 600;
 }
 
 @media (max-width: 1430px) {

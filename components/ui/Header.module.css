@@ -1,5 +1,7 @@
 .header {
   position: relative;
+  font-size: 50px;
+  font-weight: 700;
 }
 
 .header::before {

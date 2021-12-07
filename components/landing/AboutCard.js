@@ -13,7 +13,7 @@ function AboutCard(props) {
           height={props.imgHeight}
           alt={props.alt}></Image>
       </div>
-      <h2>{props.header}</h2>
+      <h3>{props.header}</h3>
       <p>{props.paragraph}</p>
     </div>
   );
