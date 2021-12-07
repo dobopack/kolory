@@ -38,6 +38,18 @@ function CategorySection({ category, slug }) {
 
   const showPagination = productsArray.length > 0 && maxPage > 1 ? true : false;
 
+  const getPreviousPage = () => {
+    if (currentPage <= 2) {
+      return `/${slug}`;
+    } else {
+      return `/${slug}/?p=${currentPage - 1}`;
+    }
+  };
+
+  const getNextPage = () => {
+    return `/${slug}/?p=${currentPage + 1}`;
+  };
+
   return (
     <>
       <div className={classes.productsWrapper}>
@@ -48,9 +60,7 @@ function CategorySection({ category, slug }) {
       {showPagination && (
         <div className={classes.pagination}>
           {currentPage > 1 && (
-            <a
-              href={`/${slug}/?p=${currentPage - 1}`}
-              className={classes.button}>
+            <a href={getPreviousPage()} className={classes.button}>
               Poprzednia
             </a>
           )}
@@ -61,9 +71,7 @@ function CategorySection({ category, slug }) {
           )}
           <span className={classes.pageIndicator}>{currentPage}</span>
           {currentPage < maxPage && (
-            <a
-              href={`/${slug}/?p=${currentPage + 1}`}
-              className={classes.button}>
+            <a href={getNextPage()} className={classes.button}>
               Następna
             </a>
           )}
