@@ -23,7 +23,6 @@ export default function Home({ categories, config }) {
   return (
     <div>
       <Head>
-        <html lang="pl-PL" />
         <title>
           Dobopack - dystrybutor dodatków barwiących i smakowo-zapachowych do
           żywności
