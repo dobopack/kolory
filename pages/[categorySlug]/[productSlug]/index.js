@@ -4,23 +4,35 @@ import gql from "graphql-tag";
 import client from "../../../apolloClient";
 
 import ProductSection from "../../../components/products/ProductSection";
+import configData from "../../../config";
 
-export default function ProductPage({ product }) {
+export default function ProductPage({ product, config }) {
+  let title;
+  if (product.name) {
+    title = product.name + " - Dobopack Trading";
+  } else if (config.title) {
+    title = config.title;
+  } else {
+    title = configData.title;
+  }
+
+  let description;
+  if (product.descriptionTag) {
+    description = product.descriptionTag;
+  } else if (config.description) {
+    description = config.description;
+  } else {
+    description = configData.description;
+  }
+
+  const keywords = config.keywords ? config.keywords : configData.keywords;
+
   return (
     <>
       <Head>
-        <title>
-          Dobopack - dystrybutor dodatków barwiących i smakowo-zapachowych do
-          żywności
-        </title>
-        <meta
-          name="description"
-          content="Dobopack Trading - oferujemy dodatki do żywności dla producentów: barwniki spożywcze naturalne i syntetyczne, aromaty, oleorezyny, olejki eteryczne, bazy do napojów. +48 22 633 96 27"
-        />
-        <meta
-          name="keywords"
-          content="Barwnik spożywczy, Barwniki spożywcze, Barwniki spożywcze w proszku, Aromaty spożywcze, Oleorezyny, Olejki eteryczne, tartrazyna E102, żółcień chinolinowa E104, żółcień pomarańczowa E110, azorubina E122, czerwień koszenilowa E124, erytrozyna E127, czerwień Allura E129, błękit patentowy E131, indygotyna E132, błękit brylantowy E133, zieleń S E142, czerń brylantowa E151, brąz HT E155, barwnik kurkumina, barwnik chlorofilina, bazy do napojów, ekstrakty przyprawowe, oleorezyna capsicum, olejek czarnego pieprzu, olejek lawendowy, olejek miętowy, oleorezyna czarnego pieprzu, oleorezyna białego pieprzu, oleorezyna papryki, oleorezyna kminku zwyczajnego, oleorezyna goździka, oleorezyna gałki muszkatołowej, bazy i aromaty do napojów BCAA, bazy i aromaty do napojów energetyzujących, bazy i aromaty do napojów z wodą kokosową, bazy i aromaty do napojów słodowych, bazy i aromaty do napojów float, aromaty i bazy do napojów cydrowych, zamiennik bieli tytanowej, aromaty, proszkowe, aromaty płynne, aromaty granulowane"
-        />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <ProductSection product={product} />
@@ -71,6 +83,7 @@ export async function getStaticProps({ params }) {
           }
           shortDescription
           longDescription
+          descriptionTag
         }
       }
     `,
@@ -82,9 +95,24 @@ export async function getStaticProps({ params }) {
   const product = products[0];
   const notFound = product ? false : true;
 
+  const confData = await client.query({
+    query: gql`
+      query {
+        config(where: { id: "ckv9wu0j4pwqs0c08eictaxxd" }) {
+          title
+          description
+          keywords
+        }
+      }
+    `,
+  });
+
+  const { config } = confData.data;
+
   return {
     props: {
       product,
+      config,
     },
     notFound,
     revalidate: 1,

@@ -3,6 +3,7 @@ import ErrorPage from "next/error";
 
 import gql from "graphql-tag";
 import client from "../../apolloClient";
+import configData from "../../config";
 
 import { useState, useEffect } from "react";
 
@@ -12,7 +13,7 @@ import CategorySection from "../../components/categories/CategorySection";
 
 import classes from "../../styles/category.module.css";
 
-export default function CategoryPage({ category, slug }) {
+export default function CategoryPage({ category, slug, config }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [maxPage, setMaxPage] = useState(1);
   const [err, setErr] = useState(false);
@@ -61,24 +62,35 @@ export default function CategoryPage({ category, slug }) {
     }
   }
 
+  let title;
+  if (category.name) {
+    title = category.name + " - Dobopack Trading";
+  } else if (config.title) {
+    title = config.title;
+  } else {
+    title = configData.title;
+  }
+
+  let description;
+  if (category.descriptionTag) {
+    description = category.descriptionTag;
+  } else if (config.description) {
+    description = config.description;
+  } else {
+    description = configData.description;
+  }
+
+  const keywords = config.keywords ? config.keywords : configData.keywords;
+
   return (
     <>
       {err && <ErrorPage statusCode={404} />}
       {!err && (
         <>
           <Head>
-            <title>
-              Dobopack - dystrybutor dodatków barwiących i smakowo-zapachowych
-              do żywności
-            </title>
-            <meta
-              name="description"
-              content="Dobopack Trading - oferujemy dodatki do żywności dla producentów: barwniki spożywcze naturalne i syntetyczne, aromaty, oleorezyny, olejki eteryczne, bazy do napojów. +48 22 633 96 27"
-            />
-            <meta
-              name="keywords"
-              content="Barwnik spożywczy, Barwniki spożywcze, Barwniki spożywcze w proszku, Aromaty spożywcze, Oleorezyny, Olejki eteryczne, tartrazyna E102, żółcień chinolinowa E104, żółcień pomarańczowa E110, azorubina E122, czerwień koszenilowa E124, erytrozyna E127, czerwień Allura E129, błękit patentowy E131, indygotyna E132, błękit brylantowy E133, zieleń S E142, czerń brylantowa E151, brąz HT E155, barwnik kurkumina, barwnik chlorofilina, bazy do napojów, ekstrakty przyprawowe, oleorezyna capsicum, olejek czarnego pieprzu, olejek lawendowy, olejek miętowy, oleorezyna czarnego pieprzu, oleorezyna białego pieprzu, oleorezyna papryki, oleorezyna kminku zwyczajnego, oleorezyna goździka, oleorezyna gałki muszkatołowej, bazy i aromaty do napojów BCAA, bazy i aromaty do napojów energetyzujących, bazy i aromaty do napojów z wodą kokosową, bazy i aromaty do napojów słodowych, bazy i aromaty do napojów float, aromaty i bazy do napojów cydrowych, zamiennik bieli tytanowej, aromaty, proszkowe, aromaty płynne, aromaty granulowane"
-            />
+            <title>{title}</title>
+            <meta name="description" content={description} />
+            <meta name="keywords" content={keywords} />
             <link rel="icon" href="/favicon.svg" />
             {prev && <link rel="prev" href={prev} />}
             {next && <link rel="next" href={next} />}
@@ -131,6 +143,7 @@ export async function getStaticProps({ params }) {
           name
           slug
           description
+          descriptionTag
           product(${newsQuery}where: { is_active: true }) {
             id
             name
@@ -151,10 +164,25 @@ export async function getStaticProps({ params }) {
   const category = categories[0];
   const notFound = category ? false : true;
 
+  const confData = await client.query({
+    query: gql`
+      query {
+        config(where: { id: "ckv9wu0j4pwqs0c08eictaxxd" }) {
+          title
+          description
+          keywords
+        }
+      }
+    `,
+  });
+
+  const { config } = confData.data;
+
   return {
     props: {
       category,
       slug,
+      config,
     },
     notFound,
     revalidate: 1,
