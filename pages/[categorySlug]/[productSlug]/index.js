@@ -25,7 +25,14 @@ export default function ProductPage({ product, config }) {
     description = configData.description;
   }
 
-  const keywords = config.keywords ? config.keywords : configData.keywords;
+  let keywords;
+  if (product.keywords) {
+    keywords = product.keywords;
+  } else if (config.keywords) {
+    keywords = config.keywords;
+  } else {
+    keywords = configData.keywords;
+  }
 
   return (
     <>
@@ -84,6 +91,7 @@ export async function getStaticProps({ params }) {
           shortDescription
           longDescription
           descriptionTag
+          keywords
         }
       }
     `,

@@ -80,7 +80,14 @@ export default function CategoryPage({ category, slug, config }) {
     description = configData.description;
   }
 
-  const keywords = config.keywords ? config.keywords : configData.keywords;
+  let keywords;
+  if (category.keywords) {
+    keywords = category.keywords;
+  } else if (config.keywords) {
+    keywords = config.keywords;
+  } else {
+    keywords = configData.keywords;
+  }
 
   return (
     <>
@@ -144,6 +151,7 @@ export async function getStaticProps({ params }) {
           slug
           description
           descriptionTag
+          keywords
           product(${newsQuery}where: { is_active: true }) {
             id
             name
