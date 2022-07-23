@@ -1,0 +1,8 @@
+Sitemap: https://kolory.com/sitemap.xml
+
+User-agent: *
+Allow: /*
+
+Disallow: /api/*
+Disallow: /ochrona-danych
+Disallow: /polityka
