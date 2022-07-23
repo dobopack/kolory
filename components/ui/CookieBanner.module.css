@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--brown-color);
+  z-index: 1;
+  color: #f5f6fa;
+  padding: 25px;
+  transition: 400ms;
+}
+
+.acceptButton {
+  padding: 10px 41px;
+  cursor: pointer;
+  background-color: var(--orange-color);
+  border-radius: 3px;
+  color: var(--brown-color) !important;
+  transition: opacity 0.2s ease-in-out;
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+.acceptButton:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 650px) {
+  .container {
+    font-size: 14px;
+  }
+
+  .acceptButton {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    font-size: 12px;
+  }
+
+  .acceptButton {
+    font-size: 12px;
+  }
+}
