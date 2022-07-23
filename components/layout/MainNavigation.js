@@ -64,28 +64,28 @@ function MainNavigation({ isMain }) {
             className={`${classes.navLinks} ${
               isMain ? classes.whiteLinks : classes.darkLinks
             }`}>
-            <Link href="/?t=aboutSection">O nas</Link>
+            <Link href="/#about">O nas</Link>
           </li>
           <li
             onClick={linkClick}
             className={`${classes.navLinks} ${
               isMain ? classes.whiteLinks : classes.darkLinks
             }`}>
-            <Link href="/?t=productSection">Oferta</Link>
+            <Link href="/#product">Oferta</Link>
           </li>
           <li
             onClick={linkClick}
             className={`${classes.navLinks} ${
               isMain ? classes.whiteLinks : classes.darkLinks
             }`}>
-            <Link href="/?t=footerSection">Kontakt</Link>
+            <Link href="/#footer">Kontakt</Link>
           </li>
           <li
             className={`${classes.ctaButton} ${
               isMain ? classes.whiteLinks : classes.darkLinks
             }`}
             onClick={linkClick}>
-            <Link href="/?t=formSection">Napisz do nas</Link>
+            <Link href="/#form">Napisz do nas</Link>
           </li>
         </ul>
       </nav>

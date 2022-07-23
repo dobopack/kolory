@@ -15,9 +15,10 @@ export default function Home({ categories, config }) {
   const router = useRouter();
 
   useEffect(() => {
-    const queryTarget = router.query.t;
-    if (queryTarget) {
-      const element = document.querySelector(`#${queryTarget}`);
+    const asPath = router.asPath.includes("#");
+    if (asPath) {
+      const idTarget = router.asPath.split("#")[1];
+      const element = document.querySelector(`#${idTarget}Section`);
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
