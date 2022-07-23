@@ -5,6 +5,8 @@ import Image from "next/image";
 import classes from "./Footer.module.css";
 
 function Footer() {
+  const fullYear = new Date().getFullYear();
+
   return (
     <footer className={classes.container} id="footerSection">
       <div className={classes.footerWrapper}>
@@ -99,7 +101,8 @@ function Footer() {
         </address>
       </div>
       <p className={classes.copyright}>
-        ©2021 Dobopack | <Link href="/polityka">Polityka prywatności</Link>
+        ©{fullYear} Dobopack |{" "}
+        <Link href="/polityka">Polityka prywatności</Link>
       </p>
     </footer>
   );
