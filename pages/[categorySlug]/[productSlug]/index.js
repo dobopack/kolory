@@ -6,7 +6,10 @@ import client from "../../../apolloClient";
 import ProductSection from "../../../components/products/ProductSection";
 import configData from "../../../config";
 
+import Breadcrumbs from "../../../components/ui/Breadcrumbs";
+
 export default function ProductPage({ product, config }) {
+  console.log(product);
   let title;
   if (product.name) {
     title = product.name + " - Dobopack Trading";
@@ -42,6 +45,16 @@ export default function ProductPage({ product, config }) {
         <meta name="keywords" content={keywords} />
         <link rel="icon" href="/favicon.svg" />
       </Head>
+      <Breadcrumbs
+        links={[
+          { url: "/", name: "Główna" },
+          { url: `/${product.category.slug}`, name: product.category.name },
+          {
+            url: `/${product.category.slug}/${product.slug}`,
+            name: product.name,
+          },
+        ]}
+      />
       <ProductSection product={product} />
     </>
   );
@@ -92,6 +105,11 @@ export async function getStaticProps({ params }) {
           longDescription
           descriptionTag
           keywords
+          slug
+          category {
+            name
+            slug
+          }
         }
       }
     `,

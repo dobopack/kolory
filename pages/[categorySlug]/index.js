@@ -11,6 +11,8 @@ import Section from "../../components/ui/Section";
 import Header from "../../components/ui/Header";
 import CategorySection from "../../components/categories/CategorySection";
 
+import Breadcrumbs from "../../components/ui/Breadcrumbs";
+
 import classes from "../../styles/category.module.css";
 
 export default function CategoryPage({ category, slug, config }) {
@@ -103,6 +105,12 @@ export default function CategoryPage({ category, slug, config }) {
             {next && <link rel="next" href={next} />}
             {canonical && <link rel="canonical" href={canonical} />}
           </Head>
+          <Breadcrumbs
+            links={[
+              { url: "/", name: "Główna" },
+              { url: `/${slug}`, name: category.name },
+            ]}
+          />
           <Section className={classes.categorySection}>
             <Header>{category.name}</Header>
             <p className={classes.description}>{category.description}</p>
