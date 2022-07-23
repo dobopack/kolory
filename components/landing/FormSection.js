@@ -175,7 +175,7 @@ function FormSection() {
             </a>
           </Link>
           oraz{" "}
-          <Link href="/ochrona_danych" passHref={true}>
+          <Link href="/ochrona-danych" passHref={true}>
             <a
               className={`${classes.linkCaption} ${classes.captionBold} ${classes.pointer}`}>
               ochrony danych osobowych

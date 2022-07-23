@@ -9,7 +9,7 @@ export const getServerSideProps = async ({ res }) => {
     production: "https://www.kolory.com",
   }[process.env.NODE_ENV];
 
-  const staticPages = ["", "ochrona_danych", "polityka"].map(
+  const staticPages = ["", "ochrona-danych", "polityka"].map(
     (staticPagePath) => {
       return `${baseUrl}/${staticPagePath}`;
     }
