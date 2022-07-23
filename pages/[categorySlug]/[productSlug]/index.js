@@ -36,6 +36,27 @@ export default function ProductPage({ product, config }) {
     keywords = configData.keywords;
   }
 
+  const breadcrumbsLinks = [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Główna",
+      item: "https://www.kolory.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: product.category.name,
+      item: `https://www.kolory.com/${product.category.slug}`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: product.name,
+      item: `https://www.kolory.com/${product.category.slug}/${product.slug}`,
+    },
+  ];
+
   return (
     <>
       <Head>
@@ -43,17 +64,18 @@ export default function ProductPage({ product, config }) {
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
         <link rel="icon" href="/favicon.svg" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: breadcrumbsLinks,
+            }),
+          }}
+        />
       </Head>
-      <Breadcrumbs
-        links={[
-          { url: "/", name: "Główna" },
-          { url: `/${product.category.slug}`, name: product.category.name },
-          {
-            url: `/${product.category.slug}/${product.slug}`,
-            name: product.name,
-          },
-        ]}
-      />
+      <Breadcrumbs links={breadcrumbsLinks} />
       <ProductSection product={product} />
     </>
   );

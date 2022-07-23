@@ -10,10 +10,10 @@ function Breadcrumbs({ links }) {
   return (
     <div className={classes.breadcrumbs}>
       <ul>
-        {links.map(({ url, name }) => {
+        {links.map(({ item, name }) => {
           return (
-            <li className={classes.linkItem} key={url}>
-              <Link href={url}>{name}</Link>
+            <li className={classes.linkItem} key={item}>
+              <Link href={item}>{name}</Link>
             </li>
           );
         })}

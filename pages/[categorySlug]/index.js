@@ -91,6 +91,21 @@ export default function CategoryPage({ category, slug, config }) {
     keywords = configData.keywords;
   }
 
+  const breadcrumbsLinks = [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Główna",
+      item: "https://www.kolory.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: category.name,
+      item: `https://www.kolory.com/${slug}`,
+    },
+  ];
+
   return (
     <>
       {err && <ErrorPage statusCode={404} />}
@@ -104,13 +119,18 @@ export default function CategoryPage({ category, slug, config }) {
             {prev && <link rel="prev" href={prev} />}
             {next && <link rel="next" href={next} />}
             {canonical && <link rel="canonical" href={canonical} />}
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "BreadcrumbList",
+                  itemListElement: breadcrumbsLinks,
+                }),
+              }}
+            />
           </Head>
-          <Breadcrumbs
-            links={[
-              { url: "/", name: "Główna" },
-              { url: `/${slug}`, name: category.name },
-            ]}
-          />
+          <Breadcrumbs links={breadcrumbsLinks} />
           <Section className={classes.categorySection}>
             <Header>{category.name}</Header>
             <p className={classes.description}>{category.description}</p>
