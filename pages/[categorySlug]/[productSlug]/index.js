@@ -9,7 +9,6 @@ import configData from "../../../config";
 import Breadcrumbs from "../../../components/ui/Breadcrumbs";
 
 export default function ProductPage({ product, config }) {
-  console.log(product);
   let title;
   if (product.name) {
     title = product.name + " - Dobopack Trading";
