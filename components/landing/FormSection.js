@@ -1,4 +1,5 @@
 import React from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -11,47 +12,81 @@ import Notify from "../ui/Notify";
 import classes from "./FormSection.module.css";
 
 function FormSection() {
+  const recaptchaRef = React.createRef();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [subject, setSubject] = useState("");
   const [content, setContent] = useState("");
-  const [isNotificationVisible, setNotificationVisible] = useState(false);
+  const [notificationObject, setNotificationObject] = useState({
+    visibility: false,
+    message: "Wiadomość wysłana!",
+    status: "success",
+  });
+
+  const onReCAPTCHAChange = async (captchaCode) => {
+    if (!captchaCode) {
+      return;
+    }
+
+    recaptchaRef.current.reset();
+
+    const record = {
+      name: name,
+      email: email,
+      phone: phone,
+      subject: subject,
+      content: content,
+      captcha: captchaCode,
+    };
+
+    try {
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
+        body: JSON.stringify(record),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setName("");
+        setEmail("");
+        setPhone("");
+        setSubject("");
+        setContent("");
+
+        showNotify("Wysłano wiadomość!", "success");
+      } else {
+        // Else throw an error with the message returned
+        // from the API
+        const error = await response.json();
+        throw new Error(error.message);
+      }
+    } catch (error) {
+      showNotify("Błąd wysyłania!", "error");
+    }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const record = {
-      name: event.target.name.value,
-      email: event.target.email.value,
-      phone: event.target.phone.value,
-      subject: event.target.subject.value,
-      content: event.target.content.value,
-    };
-
-    const response = await fetch("/api/submit-form", {
-      method: "POST",
-      body: JSON.stringify(record),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const data = await response.json();
-
-    setName("");
-    setEmail("");
-    setPhone("");
-    setSubject("");
-    setContent("");
-
-    showNotify();
+    await recaptchaRef.current.execute();
   };
 
-  const showNotify = () => {
-    setNotificationVisible(true);
+  const showNotify = (message, status) => {
+    setNotificationObject({
+      message: message,
+      status: status,
+      visibility: true,
+    });
     setTimeout(() => {
-      setNotificationVisible(false);
+      setNotificationObject({
+        message: message,
+        status: status,
+        visibility: false,
+      });
     }, 2000);
   };
 
@@ -62,6 +97,12 @@ function FormSection() {
         Zostaw nam wiadomość a wrócimy do Ciebie z indywidualną ofertą.
       </p>
       <form onSubmit={(event) => handleSubmit(event)} className={classes.form}>
+        <ReCAPTCHA
+          ref={recaptchaRef}
+          size="invisible"
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+          onChange={onReCAPTCHAChange}
+        />
         <div className={classes.columnsWrapper}>
           <div className={classes.firstColumn}>
             <Input
@@ -154,8 +195,17 @@ function FormSection() {
         </p>
         <button className={classes.formButton}>Wyślij</button>
       </form>
-      <Notify className={isNotificationVisible ? classes.notification : ""}>
-        Wiadomość wysłana!
+      <Notify
+        className={
+          notificationObject.status === "success"
+            ? `${classes.successNotification} ${
+                notificationObject.visibility ? classes.notification : ""
+              }`
+            : `${classes.errorNotification} ${
+                notificationObject.visibility ? classes.notification : ""
+              }`
+        }>
+        {notificationObject.message}
       </Notify>
     </Section>
   );

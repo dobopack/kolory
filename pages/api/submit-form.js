@@ -13,6 +13,13 @@ export default async function handler(req, res) {
     });
 
     const data = req.body;
+    const captcha = data.captcha;
+
+    if (!captcha) {
+      return res.status(422).json({
+        message: "Unproccesable request, please provide the required fields",
+      });
+    }
 
     const subject =
       data.subject == ""
@@ -90,12 +97,30 @@ export default async function handler(req, res) {
     };
 
     try {
-      let result = await transporter.sendMail(mailData);
-      console.log(result);
+      // Ping the google recaptcha verify API to verify the captcha code you received
+      const response = await fetch(
+        `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${captcha}`,
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
+          },
+          method: "POST",
+        }
+      );
+      const captchaValidation = await response.json();
+
+      if (captchaValidation.success) {
+        await transporter.sendMail(mailData);
+
+        return res.status(201).json({ message: "Form submitted" });
+      }
+
+      return res.status(422).json({
+        message: "Unproccesable request, Invalid captcha code",
+      });
     } catch (err) {
       console.log(err);
+      return res.status(422).json({ message: "Something went wrong" });
     }
-
-    res.status(201).json({ message: "Form submitted" });
   }
 }

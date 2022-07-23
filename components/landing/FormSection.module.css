@@ -85,6 +85,14 @@
   opacity: 1;
 }
 
+.successNotification {
+  background-color: rgba(120, 189, 111, 0.5);
+}
+
+.errorNotification {
+  background-color: rgba(189, 111, 111, 0.5);
+}
+
 @media (max-width: 1000px) {
   .columnsWrapper {
     flex-direction: column;
