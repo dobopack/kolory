@@ -40,9 +40,7 @@ function ProductSection({ product }) {
       <div className={classes.longDescription}>{product.longDescription}</div>
       <div className={classes.buttonWrapper}>
         <ReturnButton href={`/${categorySlug}`}>cofnij</ReturnButton>
-        <ContactButton
-          href={`/?t=formSection`}
-          className={classes.contactButton}>
+        <ContactButton href={`/#form`} className={classes.contactButton}>
           wyślij zapytanie
         </ContactButton>
       </div>

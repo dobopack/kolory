@@ -13,7 +13,7 @@ function HeroSection({ config }) {
         <h1>Sięgnij po intensywny kolor, zapach i smak</h1>
         <h2>{config.company_description}</h2>
         <div className={classes.buttonSection} onClick={removeHash}>
-          <Link href="/?t=productSection" passHref={true}>
+          <Link href="/#product" passHref={true}>
             <a>
               <div
                 className={`${classes.productsButton} ${classes.buttonElement}`}>
@@ -21,7 +21,7 @@ function HeroSection({ config }) {
               </div>
             </a>
           </Link>
-          <Link href="/?t=formSection" passHref={true}>
+          <Link href="/#form" passHref={true}>
             <a>
               <div className={`${classes.ctaButton} ${classes.buttonElement}`}>
                 Napisz do nas
