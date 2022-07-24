@@ -27,7 +27,7 @@ function Footer() {
         </div>
         <address className={classes.secondColumn}>
           <a
-            href="https://maps.google.com/?q=Ludwika Rydygiera 8, 01-793 Warszawa"
+            href="https://maps.google.com/?q=Ludwika+Rydygiera+8,+01-793+Warszawa"
             className={classes.footerRow}>
             <div className={classes.footerImage}>
               <Image
@@ -41,7 +41,7 @@ function Footer() {
               Rydygiera 8, 01-793 Warszawa
             </div>
           </a>
-          <a href="tel:+22-633-96-26" className={classes.footerRow}>
+          <a href="tel:+226339626" className={classes.footerRow}>
             <div className={classes.footerImage}>
               <Image
                 src="/footer-phone.svg"
@@ -52,7 +52,7 @@ function Footer() {
             </div>
             <div className={classes.rowContent}>22 633 96 26</div>
           </a>
-          <a href="fax:+22-633-86-96" className={classes.footerRow}>
+          <a href="fax:+226338696" className={classes.footerRow}>
             <div className={classes.footerImage}>
               <Image
                 src="/footer-fax.svg"
@@ -65,7 +65,7 @@ function Footer() {
           </a>
         </address>
         <address className={classes.thirdColumn}>
-          <a href="tel:48-508-135-525" className={classes.footerRow}>
+          <a href="tel:+48508135525" className={classes.footerRow}>
             <div className={classes.footerImage}>
               <Image
                 src="/footer-mobile.svg"
@@ -76,7 +76,7 @@ function Footer() {
             </div>
             <div className={classes.rowContent}>48 508 135 525</div>
           </a>
-          <a href="tel:48-507-033-685" className={classes.footerRow}>
+          <a href="tel:+48507033685" className={classes.footerRow}>
             <div className={classes.footerImage}>
               <Image
                 src="/footer-mobile.svg"
