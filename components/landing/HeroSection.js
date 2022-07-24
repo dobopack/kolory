@@ -15,12 +15,17 @@ function HeroSection({ config }) {
         <div className={classes.buttonSection} onClick={removeHash}>
           <Link href="/?t=productSection" passHref={true}>
             <a>
-              <button className={classes.productsButton}>Oferta</button>
+              <div
+                className={`${classes.productsButton} ${classes.buttonElement}`}>
+                Oferta
+              </div>
             </a>
           </Link>
           <Link href="/?t=formSection" passHref={true}>
             <a>
-              <button className={classes.ctaButton}>Napisz do nas</button>
+              <div className={`${classes.ctaButton} ${classes.buttonElement}`}>
+                Napisz do nas
+              </div>
             </a>
           </Link>
         </div>
