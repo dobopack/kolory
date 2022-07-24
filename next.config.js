@@ -30,6 +30,16 @@ module.exports = {
         destination: "/ochrona-danych",
         permanent: true,
       },
+      {
+        source: "/index.html",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/index.php",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
   reactStrictMode: true,
