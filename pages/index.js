@@ -29,19 +29,17 @@ export default function Home({ categories, config }) {
     : configData.description;
 
   return (
-    <div>
+    <>
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="icon" href="/favicon.svg" />
       </Head>
-      <main>
-        <HeroSection config={config} />
-        <ProductsSection categories={categories} config={config} />
-        <AboutSection config={config} />
-        <FormSection config={config} />
-      </main>
-    </div>
+      <HeroSection config={config} />
+      <ProductsSection categories={categories} config={config} />
+      <AboutSection config={config} />
+      <FormSection config={config} />
+    </>
   );
 }
 
