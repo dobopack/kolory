@@ -98,6 +98,19 @@ function Footer() {
             </div>
             <div className={classes.rowContent}>biuro@kolory.com</div>
           </a>
+          <a
+            href="https://www.facebook.com/Dobopack-Trading-barwniki-aromaty-oleorezyny-olejki-126749011279719/"
+            className={classes.footerRow}>
+            <div className={classes.footerImage}>
+              <Image
+                src="/facebook-logo.svg"
+                alt="Dobopack facebook"
+                width={22}
+                height={22}
+                layout="fixed"></Image>
+            </div>
+            <div className={classes.rowContent}>dobopack</div>
+          </a>
         </address>
       </div>
       <p className={classes.copyright}>
