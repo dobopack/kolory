@@ -20,7 +20,7 @@ export default function CategoryPage({ category, slug, config }) {
   const [maxPage, setMaxPage] = useState(1);
   const [err, setErr] = useState(false);
 
-  const rootPage = `https://www.kolory.com/${slug}`;
+  const rootPage = `${configData.baseUrl}/${slug}`;
 
   useEffect(() => {
     const maxPage = Math.ceil(category.product.length / 8);
@@ -82,18 +82,20 @@ export default function CategoryPage({ category, slug, config }) {
     description = configData.description;
   }
 
+  const currentUrl = `${configData.baseUrl}/${slug}`;
+
   const breadcrumbsLinks = [
     {
       "@type": "ListItem",
       position: 1,
       name: "Główna",
-      item: "https://www.kolory.com",
+      item: configData.baseUrl,
     },
     {
       "@type": "ListItem",
       position: 2,
       name: category.name,
-      item: `https://www.kolory.com/${slug}`,
+      item: currentUrl,
     },
   ];
 
@@ -105,6 +107,10 @@ export default function CategoryPage({ category, slug, config }) {
           <Head>
             <title>{title}</title>
             <meta name="description" content={description} />
+            <meta property="og:title" content={title} />
+            <meta property="og:description" content={description} />
+            <meta property="og:image" content={category.image.url} />
+            <meta property="og:url" content={currentUrl} />
             <link rel="icon" href="/favicon.svg" />
             {prev && <link rel="prev" href={prev} />}
             {next && <link rel="next" href={next} />}
@@ -169,6 +175,9 @@ export async function getStaticProps({ params }) {
           slug
           description
           descriptionTag
+          image {
+            url
+          }
           product(${newsQuery}where: { is_active: true }) {
             id
             name

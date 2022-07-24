@@ -33,6 +33,13 @@ export default function Home({ categories, config }) {
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta
+          property="og:image"
+          content={`${configData.baseUrl}/hero-image.webp`}
+        />
+        <meta property="og:url" content={configData.baseUrl} />
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <HeroSection config={config} />

@@ -27,24 +27,26 @@ export default function ProductPage({ product, config }) {
     description = configData.description;
   }
 
+  const currentUrl = `${configData.baseUrl}/${product.category.slug}/${product.slug}`;
+
   const breadcrumbsLinks = [
     {
       "@type": "ListItem",
       position: 1,
       name: "Główna",
-      item: "https://www.kolory.com",
+      item: configData.baseUrl,
     },
     {
       "@type": "ListItem",
       position: 2,
       name: product.category.name,
-      item: `https://www.kolory.com/${product.category.slug}`,
+      item: `${configData.baseUrl}/${product.category.slug}`,
     },
     {
       "@type": "ListItem",
       position: 3,
       name: product.name,
-      item: `https://www.kolory.com/${product.category.slug}/${product.slug}`,
+      item: currentUrl,
     },
   ];
 
@@ -53,6 +55,10 @@ export default function ProductPage({ product, config }) {
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={product.image.url} />
+        <meta property="og:url" content={currentUrl} />
         <link rel="icon" href="/favicon.svg" />
         <script
           type="application/ld+json"
