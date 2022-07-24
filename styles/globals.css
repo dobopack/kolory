@@ -43,6 +43,10 @@ h2 {
   font-size: 22px;
 }
 
+h3 {
+  color: var(--brown-color);
+}
+
 p {
   color: rgba(26, 18, 14, 0.7);
   font-weight: 500;

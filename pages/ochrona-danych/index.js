@@ -18,7 +18,9 @@ function index() {
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <Section className={classes.wrapper}>
-        <Header className={classes.header}>Ochrona danych osobowych</Header>
+        <Header type="h1" className={classes.header}>
+          Ochrona danych osobowych
+        </Header>
         <h2>
           Informacja o zasadach przetwarzania danych osobowych w Dobopack
           Trading Sp. z o.o.

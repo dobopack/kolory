@@ -18,7 +18,9 @@ function index() {
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <Section className={classes.wrapper}>
-        <Header className={classes.header}>Polityka prywatności</Header>
+        <Header type="h1" className={classes.header}>
+          Polityka prywatności
+        </Header>
         <p>
           Dobopack Trading (DT) zastrzega sobie prawo do wprowadzania zmian w
           Polityce Prywatności. Każdego klienta DT i użytkownika serwisu

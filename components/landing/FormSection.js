@@ -92,7 +92,9 @@ function FormSection() {
 
   return (
     <Section className={classes.container} id="formSection">
-      <Header className={classes.header}>Skontaktuj się z nami</Header>
+      <Header type="h3" className={classes.header}>
+        Skontaktuj się z nami
+      </Header>
       <p className={classes.sectionDescription}>
         Zostaw nam wiadomość a wrócimy do Ciebie z indywidualną ofertą.
       </p>

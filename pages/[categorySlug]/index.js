@@ -123,7 +123,7 @@ export default function CategoryPage({ category, slug, config }) {
           <Breadcrumbs links={breadcrumbsLinks} />
           <Section className={classes.categorySection}>
             <Header>{category.name}</Header>
-            <p className={classes.description}>{category.description}</p>
+            <h2 className={classes.description}>{category.description}</h2>
             <CategorySection category={category} slug={slug} />
           </Section>
         </>

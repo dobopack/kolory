@@ -22,7 +22,7 @@ const getImageUrl = (image) => {
 function AboutSection({ config }) {
   return (
     <Section className={classes.aboutSection} id="aboutSection">
-      <Header>Dlaczego my?</Header>
+      <Header type="h3">Dlaczego my?</Header>
       <div className={classes.cardSection}>
         <AboutCard
           className={classes.firstCard}

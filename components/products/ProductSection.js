@@ -24,7 +24,7 @@ function ProductSection({ product }) {
 
   return (
     <Section className={classes.container}>
-      <Header>{product.name}</Header>
+      <Header type="h1">{product.name}</Header>
       <div className={classes.imageRow}>
         <div className={classes.imageContainer}>
           <Image

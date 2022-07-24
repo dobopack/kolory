@@ -11,7 +11,7 @@ function HeroSection({ config }) {
     <div className={classes.hero}>
       <Section className={classes.heroContent}>
         <h1>Sięgnij po intensywny kolor, zapach i smak</h1>
-        <p>{config.company_description}</p>
+        <h2>{config.company_description}</h2>
         <div className={classes.buttonSection} onClick={removeHash}>
           <Link href="/?t=productSection" passHref={true}>
             <a>

@@ -24,7 +24,7 @@
   line-height: 140%;
 }
 
-.heroContent p {
+.heroContent h2 {
   color: white;
   font-size: 25px;
   font-weight: 300;
@@ -100,7 +100,7 @@
     font-size: 50px;
   }
 
-  .heroContent p {
+  .heroContent h2 {
     width: 340px;
     font-size: 20px;
   }
@@ -120,7 +120,7 @@
     font-size: 40px;
   }
 
-  .heroContent p {
+  .heroContent h2 {
     width: 340px;
     font-size: 18px;
   }
@@ -146,7 +146,7 @@
     font-size: 40px;
   }
 
-  .heroContent p {
+  .heroContent h2 {
     font-size: 16px;
   }
 }
@@ -160,7 +160,7 @@
     font-size: 35px;
   }
 
-  .heroContent p {
+  .heroContent h2 {
     width: 250px;
   }
 }
