@@ -22,6 +22,26 @@ export default class MyDocument extends Document {
           `,
             }}
           />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "Rydygiera 8",
+                  addressLocality: "Warszawa",
+                  addressRegion: "MZ",
+                  postalCode: "01-793",
+                  addressCountry: "PL",
+                },
+                geo: {
+                  latitude: 52.26029,
+                  longtitude: 20.97517,
+                },
+              }),
+            }}
+          />
         </Head>
         <body>
           <Main />
