@@ -83,7 +83,7 @@
 
 @media (max-width: 900px) {
   .hero {
-    background: url("/hero-image.jpg") rgba(50, 35, 28, 0.5);
+    background: url("/hero-image.webp") rgba(50, 35, 28, 0.5);
     background-size: cover;
     background-blend-mode: multiply;
     background-position: right;
