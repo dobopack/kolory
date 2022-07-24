@@ -44,6 +44,6 @@ module.exports = {
   },
   reactStrictMode: true,
   images: {
-    domains: ["media.graphcms.com", "media.graphassets.com"],
+    domains: ["www.kolory.com", "media.graphcms.com", "media.graphassets.com"],
   },
 };
