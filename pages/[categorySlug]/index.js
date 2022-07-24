@@ -82,15 +82,6 @@ export default function CategoryPage({ category, slug, config }) {
     description = configData.description;
   }
 
-  let keywords;
-  if (category.keywords) {
-    keywords = category.keywords;
-  } else if (config.keywords) {
-    keywords = config.keywords;
-  } else {
-    keywords = configData.keywords;
-  }
-
   const breadcrumbsLinks = [
     {
       "@type": "ListItem",
@@ -114,7 +105,6 @@ export default function CategoryPage({ category, slug, config }) {
           <Head>
             <title>{title}</title>
             <meta name="description" content={description} />
-            <meta name="keywords" content={keywords} />
             <link rel="icon" href="/favicon.svg" />
             {prev && <link rel="prev" href={prev} />}
             {next && <link rel="next" href={next} />}
@@ -179,7 +169,6 @@ export async function getStaticProps({ params }) {
           slug
           description
           descriptionTag
-          keywords
           product(${newsQuery}where: { is_active: true }) {
             id
             name
@@ -206,7 +195,6 @@ export async function getStaticProps({ params }) {
         config(where: { id: "ckv9wu0j4pwqs0c08eictaxxd" }) {
           title
           description
-          keywords
         }
       }
     `,

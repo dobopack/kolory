@@ -27,14 +27,12 @@ export default function Home({ categories, config }) {
   const description = config.description
     ? config.description
     : configData.description;
-  const keywords = config.keywords ? config.keywords : configData.keywords;
 
   return (
     <div>
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta name="keywords" content={keywords} />
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <main>
@@ -87,7 +85,6 @@ export async function getStaticProps() {
             url
           }
           card3_content
-          keywords
           title
           description
         }

@@ -27,15 +27,6 @@ export default function ProductPage({ product, config }) {
     description = configData.description;
   }
 
-  let keywords;
-  if (product.keywords) {
-    keywords = product.keywords;
-  } else if (config.keywords) {
-    keywords = config.keywords;
-  } else {
-    keywords = configData.keywords;
-  }
-
   const breadcrumbsLinks = [
     {
       "@type": "ListItem",
@@ -62,7 +53,6 @@ export default function ProductPage({ product, config }) {
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta name="keywords" content={keywords} />
         <link rel="icon" href="/favicon.svg" />
         <script
           type="application/ld+json"
@@ -125,7 +115,6 @@ export async function getStaticProps({ params }) {
           shortDescription
           longDescription
           descriptionTag
-          keywords
           slug
           category {
             name
@@ -148,7 +137,6 @@ export async function getStaticProps({ params }) {
         config(where: { id: "ckv9wu0j4pwqs0c08eictaxxd" }) {
           title
           description
-          keywords
         }
       }
     `,
