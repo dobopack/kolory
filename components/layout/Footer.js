@@ -27,7 +27,7 @@ function Footer() {
         </div>
         <address className={classes.secondColumn}>
           <a
-            href="https://maps.google.com/?q=Ludwika+Rydygiera+8,+01-793+Warszawa"
+            href="https://maps.google.com/maps?cid=8617263085138471232"
             className={classes.footerRow}>
             <div className={classes.footerImage}>
               <Image
