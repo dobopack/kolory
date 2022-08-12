@@ -41,6 +41,7 @@ export default function Home({ categories, config }) {
         />
         <meta property="og:url" content={configData.baseUrl} />
         <link rel="icon" href="/favicon.svg" />
+        <link rel="canonical" href="https://www.kolory.com" />
       </Head>
       <HeroSection config={config} />
       <ProductsSection categories={categories} config={config} />
