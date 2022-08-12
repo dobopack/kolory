@@ -46,7 +46,7 @@ export default function CategoryPage({ category, slug, config }) {
   let prev, next, canonical;
 
   if (currentPage < maxPage) {
-    next = `${rootPage}/?p=${currentPage + 1}`;
+    next = `${rootPage}?p=${currentPage + 1}`;
   } else {
     next = null;
   }
@@ -56,11 +56,11 @@ export default function CategoryPage({ category, slug, config }) {
     prev = null;
   }
   if (currentPage > 1) {
-    canonical = `${rootPage}/?p=${currentPage}`;
+    canonical = `${rootPage}?p=${currentPage}`;
     if (currentPage <= 2) {
       prev = rootPage;
     } else {
-      prev = `${rootPage}/?p=${currentPage - 1}`;
+      prev = `${rootPage}?p=${currentPage - 1}`;
     }
   }
 
