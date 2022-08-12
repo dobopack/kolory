@@ -42,12 +42,12 @@ function CategorySection({ category, slug }) {
     if (currentPage <= 2) {
       return `/${slug}`;
     } else {
-      return `/${slug}/?p=${currentPage - 1}`;
+      return `/${slug}?p=${currentPage - 1}`;
     }
   };
 
   const getNextPage = () => {
-    return `/${slug}/?p=${currentPage + 1}`;
+    return `/${slug}?p=${currentPage + 1}`;
   };
 
   return (
