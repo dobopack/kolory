@@ -159,6 +159,6 @@ export async function getStaticProps({ params }) {
       config,
     },
     notFound,
-    revalidate: 1,
+    revalidate: 10,
   };
 }
