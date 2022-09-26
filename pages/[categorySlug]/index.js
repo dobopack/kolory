@@ -155,7 +155,10 @@ export async function getServerSideProps({ query }) {
   if (category) {
     const rootPage = `${configData.baseUrl}/${slug}`;
 
-    const maxPage = Math.ceil(category.product.length / 8);
+    let maxPage = 1;
+    if (category.product.length > 0) {
+      maxPage = Math.ceil(category.product.length / 8);
+    }
 
     if (+page < 1 || +page > maxPage) {
       queryPage = null;
