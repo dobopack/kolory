@@ -18,5 +18,5 @@ export function middleware(req) {
     return NextResponse.redirect(`${origin}${redirect}`, 308);
   }
 
-  return NextResponse.next();
+  // return NextResponse.next();
 }
