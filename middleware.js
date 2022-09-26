@@ -14,9 +14,9 @@ export function middleware(req) {
   const redirectKey = href.replace(origin, "");
   const redirect = redirectMap[redirectKey];
 
-  if (redirect) {
-    return NextResponse.redirect(`${origin}${redirect}`, 308);
-  }
+  // if (redirect) {
+  //   return NextResponse.redirect(`${origin}${redirect}`, 308);
+  // }
 
   // return NextResponse.next();
 }
