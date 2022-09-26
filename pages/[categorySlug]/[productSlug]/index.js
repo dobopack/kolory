@@ -136,7 +136,9 @@ export async function getStaticProps({ params }) {
   const { products } = data;
 
   const product = products[0];
-  const notFound = product ? false : true;
+  let notFound = product ? false : true;
+
+  if (!product.category) notFound = true;
 
   const confData = await client.query({
     query: gql`
