@@ -10,7 +10,9 @@ import Breadcrumbs from "../../../components/ui/Breadcrumbs";
 
 export default function ProductPage({ product, config }) {
   let title;
-  if (product.name) {
+  if (product.titleTag) {
+    title = product.titleTag;
+  } else if (product.name) {
     title = product.name + " - Dobopack Trading";
   } else if (config.title) {
     title = config.title;
@@ -121,6 +123,7 @@ export async function getStaticProps({ params }) {
           }
           shortDescription
           longDescription
+          titleTag
           descriptionTag
           slug
           category {

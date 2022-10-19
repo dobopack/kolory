@@ -25,7 +25,9 @@ export default function CategoryPage({
   }
 
   let title;
-  if (category.name) {
+  if (category.titleTag) {
+    title = category.titleTag;
+  } else if (category.name) {
     title = category.name + " - Dobopack Trading";
   } else if (config.title) {
     title = config.title;
@@ -108,6 +110,7 @@ export async function getServerSideProps({ query }) {
           id
           name
           slug
+          titleTag
           description
           descriptionTag
           image {
