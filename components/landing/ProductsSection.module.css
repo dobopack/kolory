@@ -7,10 +7,13 @@
   z-index: -2;
 }
 
-.productsSection > p {
+.description {
+  color: rgba(26, 18, 14, 0.7);
+  font-weight: 500;
   margin-top: 80px;
   width: 100%;
   text-align: left;
+  white-space: pre-wrap;
 }
 
 .cardsBox {
@@ -31,7 +34,7 @@
     margin-top: 60px;
   }
 
-  .productsSection > p {
+  .description {
     margin-top: 60px;
   }
 }
@@ -41,7 +44,7 @@
     margin-top: 40px;
   }
 
-  .productsSection > p {
+  .description {
     margin-top: 40px;
     font-size: 14px;
   }

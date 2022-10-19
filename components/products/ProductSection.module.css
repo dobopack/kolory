@@ -25,6 +25,7 @@
   font-size: 18px;
   line-height: 182%;
   color: rgba(26, 18, 14, 0.7);
+  white-space: pre-wrap;
 }
 
 .longDescription {

@@ -15,7 +15,7 @@ function ProductsSection({ categories, config }) {
           <ProductCard key={i} category={category} />
         ))}
       </div>
-      <p>{config.products_description}</p>
+      <div className={classes.description}>{config.products_description}</div>
     </Section>
   );
 }

@@ -47,7 +47,7 @@ function AboutSection({ config }) {
           paragraph={config.card3_content}
         />
       </div>
-      <p>{config.about_description}</p>
+      <div className={classes.description}>{config.about_description}</div>
     </Section>
   );
 }
