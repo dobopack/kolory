@@ -122,7 +122,9 @@ export async function getStaticProps({ params }) {
             url
           }
           shortDescription
+          shortDescriptionMarkdown
           longDescription
+          longDescriptionMarkdown
           titleTag
           descriptionTag
           slug

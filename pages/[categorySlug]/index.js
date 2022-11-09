@@ -1,4 +1,5 @@
 import Head from "next/head";
+import ReactMarkdown from "react-markdown";
 import Custom404 from "../404";
 
 import gql from "graphql-tag";
@@ -90,7 +91,14 @@ export default function CategoryPage({
       <Breadcrumbs links={breadcrumbsLinks} />
       <Section className={classes.categorySection}>
         <Header>{category.name}</Header>
-        <h2 className={classes.description}>{category.description}</h2>
+        <h2 className={classes.description}>
+          {category.descriptionMarkdown &&
+          category.descriptionMarkdown !== "" ? (
+            <ReactMarkdown children={category.descriptionMarkdown} />
+          ) : (
+            category.description
+          )}
+        </h2>
         <CategorySection category={category} slug={slug} />
       </Section>
     </>
@@ -112,6 +120,7 @@ export async function getServerSideProps({ query }) {
           slug
           titleTag
           description
+          descriptionMarkdown
           descriptionTag
           image {
             url

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
+import ReactMarkdown from "react-markdown";
 
 import Section from "../../components/ui/Section";
 import Header from "../../components/ui/Header";
@@ -34,10 +35,22 @@ function ProductSection({ product }) {
             objectFit="contain"></Image>
         </div>
         <div className={classes.shortDescription}>
-          {product.shortDescription}
+          {product.shortDescriptionMarkdown &&
+          product.shortDescriptionMarkdown !== "" ? (
+            <ReactMarkdown children={product.shortDescriptionMarkdown} />
+          ) : (
+            product.shortDescription
+          )}
         </div>
       </div>
-      <div className={classes.longDescription}>{product.longDescription}</div>
+      <div className={classes.longDescription}>
+        {product.longDescriptionMarkdown &&
+        product.longDescriptionMarkdown !== "" ? (
+          <ReactMarkdown children={product.longDescriptionMarkdown} />
+        ) : (
+          product.longDescription
+        )}
+      </div>
       <div className={classes.buttonWrapper}>
         <ReturnButton href={`/${categorySlug}`}>cofnij</ReturnButton>
         <ContactButton href={`/#form`} className={classes.contactButton}>
