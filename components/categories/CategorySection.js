@@ -34,7 +34,7 @@ function CategorySection({ category, slug }) {
       category.product.slice((queryPage - 1) * 8, queryPage * 8)
     );
     setMaxPage(maxPage);
-  }, [category.product.length]);
+  }, [category.product]);
 
   const showPagination = productsArray.length > 0 && maxPage > 1 ? true : false;
 

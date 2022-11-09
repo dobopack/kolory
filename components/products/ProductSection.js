@@ -37,7 +37,7 @@ function ProductSection({ product }) {
         <div className={classes.shortDescription}>
           {product.shortDescriptionMarkdown &&
           product.shortDescriptionMarkdown !== "" ? (
-            <ReactMarkdown children={product.shortDescriptionMarkdown} />
+            <ReactMarkdown>{product.shortDescriptionMarkdown}</ReactMarkdown>
           ) : (
             product.shortDescription
           )}
@@ -46,7 +46,7 @@ function ProductSection({ product }) {
       <div className={classes.longDescription}>
         {product.longDescriptionMarkdown &&
         product.longDescriptionMarkdown !== "" ? (
-          <ReactMarkdown children={product.longDescriptionMarkdown} />
+          <ReactMarkdown>{product.longDescriptionMarkdown}</ReactMarkdown>
         ) : (
           product.longDescription
         )}

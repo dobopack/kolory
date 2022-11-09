@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
     if (isConsentSet) {
       setCookie(true);
     }
-  });
+  }, [setCookie]);
 
   return (
     <Layout isMain={isMain}>

@@ -94,7 +94,7 @@ export default function CategoryPage({
         <h2 className={classes.description}>
           {category.descriptionMarkdown &&
           category.descriptionMarkdown !== "" ? (
-            <ReactMarkdown children={category.descriptionMarkdown} />
+            <ReactMarkdown>{category.descriptionMarkdown}</ReactMarkdown>
           ) : (
             category.description
           )}
