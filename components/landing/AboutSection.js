@@ -1,19 +1,10 @@
 import React from "react";
-
-// import imageTemplate from "../../public/image-template.svg";
+import ReactMarkdown from "react-markdown";
 
 import Section from "../ui/Section";
 import Header from "../ui/Header";
 import AboutCard from "./AboutCard";
 import classes from "./AboutSection.module.css";
-
-// const getImageUrl = (image) => {
-//   if (image) {
-//     return image.url;
-//   } else {
-//     return imageTemplate;
-//   }
-// };
 
 function AboutSection({ config }) {
   return (
@@ -47,7 +38,14 @@ function AboutSection({ config }) {
           paragraph={config.card3_content}
         />
       </div>
-      <div className={classes.description}>{config.about_description}</div>
+      <div className={classes.description}>
+        {config.about_description_markdown &&
+        config.about_description_markdown !== "" ? (
+          <ReactMarkdown>{config.about_description_markdown}</ReactMarkdown>
+        ) : (
+          config.about_description
+        )}
+      </div>
     </Section>
   );
 }

@@ -74,8 +74,11 @@ export async function getStaticProps() {
       query {
         config(where: { id: "ckv9wu0j4pwqs0c08eictaxxd" }) {
           company_description
+          company_description_markdown
           about_description
+          about_description_markdown
           products_description
+          products_description_markdown
           card1_header
           card1_image {
             url

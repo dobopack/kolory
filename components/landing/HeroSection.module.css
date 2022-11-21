@@ -24,7 +24,8 @@
   line-height: 140%;
 }
 
-.heroContent h2 {
+.heroContent h2,
+.heroContent h2 p {
   color: white;
   font-size: 25px;
   font-weight: 300;

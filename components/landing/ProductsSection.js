@@ -1,4 +1,5 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 
 import Header from "../ui/Header";
 import Section from "../ui/Section";
@@ -7,6 +8,7 @@ import ProductCard from "./ProductCard";
 import classes from "./ProductsSection.module.css";
 
 function ProductsSection({ categories, config }) {
+  console.log(config);
   return (
     <Section className={classes.productsSection} id="productSection">
       <Header type="h3">Nasza oferta</Header>
@@ -15,7 +17,14 @@ function ProductsSection({ categories, config }) {
           <ProductCard key={i} category={category} />
         ))}
       </div>
-      <div className={classes.description}>{config.products_description}</div>
+      <div className={classes.description}>
+        {config.products_description_markdown &&
+        config.products_description_markdown !== "" ? (
+          <ReactMarkdown>{config.products_description_markdown}</ReactMarkdown>
+        ) : (
+          config.products_description
+        )}
+      </div>
     </Section>
   );
 }
