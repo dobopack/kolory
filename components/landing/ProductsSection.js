@@ -8,7 +8,6 @@ import ProductCard from "./ProductCard";
 import classes from "./ProductsSection.module.css";
 
 function ProductsSection({ categories, config }) {
-  console.log(config);
   return (
     <Section className={classes.productsSection} id="productSection">
       <Header type="h3">Nasza oferta</Header>
