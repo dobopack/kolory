@@ -52,23 +52,6 @@ export default function Home({ categories, config }) {
 }
 
 export async function getStaticProps() {
-  const { data } = await client.query({
-    query: gql`
-      query {
-        categories(where: { is_active: true }) {
-          id
-          name
-          slug
-          image {
-            url
-          }
-        }
-      }
-    `,
-  });
-
-  const { categories } = data;
-
   const confData = await client.query({
     query: gql`
       query {
@@ -96,12 +79,21 @@ export async function getStaticProps() {
           card3_content
           title
           description
+          categories(where: { is_active: true }) {
+            id
+            name
+            slug
+            image {
+              url
+            }
+          }
         }
       }
     `,
   });
 
   const { config } = confData.data;
+  const { categories } = config;
 
   return {
     props: {
