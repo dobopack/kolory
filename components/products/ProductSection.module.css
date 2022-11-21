@@ -19,7 +19,8 @@
 
 .shortDescription {
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
   width: 50%;
   margin-left: 100px;
   font-size: 18px;
