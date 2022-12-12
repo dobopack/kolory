@@ -61,7 +61,7 @@ export default function ProductPage({ product, config }) {
         <meta property="og:description" content={description} />
         <meta property="og:image" content={product.image.url} />
         <meta property="og:url" content={currentUrl} />
-        <link rel="icon" href="/favicon.svg" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="canonical" href={currentUrl} />
         <script
           type="application/ld+json"

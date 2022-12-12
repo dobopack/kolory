@@ -15,7 +15,7 @@ function index() {
       <Head>
         <title>{config.title}</title>
         <meta name="description" content={config.description} />
-        <link rel="icon" href="/favicon.svg" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       <Section className={classes.wrapper}>
         <Header type="h1" className={classes.header}>

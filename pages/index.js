@@ -40,7 +40,7 @@ export default function Home({ categories, config }) {
           content={`${configData.baseUrl}/hero-image.webp`}
         />
         <meta property="og:url" content={configData.baseUrl} />
-        <link rel="icon" href="/favicon.svg" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="canonical" href="https://www.kolory.com" />
       </Head>
       <HeroSection config={config} />

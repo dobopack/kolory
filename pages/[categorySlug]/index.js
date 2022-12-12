@@ -71,7 +71,7 @@ export default function CategoryPage({
         <meta property="og:description" content={description} />
         <meta property="og:image" content={category.image.url} />
         <meta property="og:url" content={currentUrl} />
-        <link rel="icon" href="/favicon.svg" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
         {canonical.prev && <link rel="prev" href={canonical.prev} />}
         {canonical.next && <link rel="next" href={canonical.next} />}
         {canonical.canonical && (
