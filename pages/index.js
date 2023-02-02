@@ -56,6 +56,7 @@ export async function getStaticProps() {
     query: gql`
       query {
         config(where: { id: "ckv9wu0j4pwqs0c08eictaxxd" }) {
+          main_header
           company_description
           company_description_markdown
           about_description

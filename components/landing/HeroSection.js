@@ -11,7 +11,7 @@ function HeroSection({ config }) {
   return (
     <div className={classes.hero}>
       <Section className={classes.heroContent}>
-        <h1>Sięgnij po intensywny kolor, zapach i smak</h1>
+        <h1>{config.main_header}</h1>
         <h2>
           {config.company_description_markdown &&
           config.company_description_markdown !== "" ? (
