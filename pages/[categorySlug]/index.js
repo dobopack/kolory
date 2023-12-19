@@ -1,5 +1,4 @@
 import Head from "next/head";
-import ReactMarkdown from "react-markdown";
 import Custom404 from "../404";
 
 import gql from "graphql-tag";
@@ -19,9 +18,9 @@ export default function CategoryPage({
   slug,
   config,
   canonical,
-  queryPage,
+  allCategories,
 }) {
-  if (!category || !queryPage) {
+  if (!category) {
     return <Custom404 />;
   }
 
@@ -72,11 +71,7 @@ export default function CategoryPage({
         <meta property="og:image" content={category.image.url} />
         <meta property="og:url" content={currentUrl} />
         <link rel="icon" type="image/png" href="/favicon.png" />
-        {canonical.prev && <link rel="prev" href={canonical.prev} />}
-        {canonical.next && <link rel="next" href={canonical.next} />}
-        {canonical.canonical && (
-          <link rel="canonical" href={canonical.canonical} />
-        )}
+        {canonical && <link rel="canonical" href={canonical} />}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -91,15 +86,7 @@ export default function CategoryPage({
       <Breadcrumbs links={breadcrumbsLinks} />
       <Section className={classes.categorySection}>
         <Header>{category.name}</Header>
-        <div className={classes.description}>
-          {category.descriptionMarkdown &&
-          category.descriptionMarkdown !== "" ? (
-            <ReactMarkdown>{category.descriptionMarkdown}</ReactMarkdown>
-          ) : (
-            category.description
-          )}
-        </div>
-        <CategorySection category={category} slug={slug} />
+        <CategorySection category={category} allCategories={allCategories} />
       </Section>
     </>
   );
@@ -107,7 +94,6 @@ export default function CategoryPage({
 
 export async function getServerSideProps({ query }) {
   const slug = query.categorySlug;
-  const page = query.p || 1;
 
   const newsQuery = slug === "nowosci" ? "last: 8, " : "";
 
@@ -157,54 +143,29 @@ export async function getServerSideProps({ query }) {
 
   const { config } = confData.data;
 
-  let queryPage = +page;
-  let canonical = {
-    prev: null,
-    next: null,
-    canonical: null,
-  };
+  const rootPage = `${configData.baseUrl}/${slug}`;
 
-  if (category) {
-    const rootPage = `${configData.baseUrl}/${slug}`;
-
-    let maxPage = 1;
-    if (category.product.length > 0) {
-      maxPage = Math.ceil(category.product.length / 8);
-    }
-
-    if (+page < 1 || +page > maxPage) {
-      queryPage = null;
-    }
-
-    if (queryPage) {
-      if (queryPage < maxPage) {
-        canonical.next = `${rootPage}?p=${queryPage + 1}`;
-      } else {
-        canonical.next = null;
-      }
-
-      if (queryPage == 1) {
-        canonical.canonical = rootPage;
-        canonical.prev = null;
-      }
-      if (queryPage > 1) {
-        canonical.canonical = `${rootPage}?p=${queryPage}`;
-        if (queryPage <= 2) {
-          canonical.prev = rootPage;
-        } else {
-          canonical.prev = `${rootPage}?p=${queryPage - 1}`;
+  const allCategoriesResult = await client.query({
+    query: gql`
+      query {
+        categories(where: { is_active: true }) {
+          slug
         }
       }
-    }
-  }
+    `,
+  });
+
+  const allCategories =
+    allCategoriesResult?.data?.categories.map((category) => category.slug) ||
+    [];
 
   return {
     props: {
       category,
       slug,
       config,
-      canonical,
-      queryPage,
+      canonical: rootPage,
+      allCategories,
     },
   };
 }

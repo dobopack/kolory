@@ -1,87 +1,51 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
 
 import CategoryCard from "./CategoryCard";
 
 import classes from "./CategorySection.module.css";
 
-function CategorySection({ category, slug }) {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [maxPage, setMaxPage] = useState(1);
-  const [productsArray, setProductsArray] = useState(
-    category.product.slice(0, 8)
+import configData from "../../config";
+
+function CategorySection({ category, allCategories }) {
+  const categoryIndex = allCategories.findIndex(
+    (slug) => slug === category.slug
   );
 
-  useEffect(() => {
-    const maxPage = Math.ceil(category.product.length / 8);
-
-    const urlSearchParams = new URLSearchParams(window.location.search);
-    const params = Object.fromEntries(urlSearchParams.entries());
-
-    let queryPage;
-    if (params.p) {
-      if (+params.p < 1 || +params.p > maxPage) {
-        queryPage = 1;
-      } else {
-        queryPage = +params.p;
-      }
-    } else {
-      queryPage = 1;
-    }
-
-    setCurrentPage(queryPage);
-    setProductsArray(
-      category.product.slice((queryPage - 1) * 8, queryPage * 8)
-    );
-    setMaxPage(maxPage);
-  }, [category.product]);
-
-  const showPagination = productsArray.length > 0 && maxPage > 1 ? true : false;
-
-  const getPreviousPage = () => {
-    if (currentPage <= 2) {
-      return `/${slug}`;
-    } else {
-      return `/${slug}?p=${currentPage - 1}`;
-    }
-  };
-
-  const getNextPage = () => {
-    return `/${slug}?p=${currentPage + 1}`;
-  };
+  const nextCategoryIndex =
+    categoryIndex === allCategories.length - 1 ? 0 : categoryIndex + 1;
+  const previousCategoryIndex =
+    categoryIndex === 0 ? allCategories.length - 1 : categoryIndex - 1;
 
   return (
     <>
-      <div className={classes.productsWrapper}>
-        {productsArray.map((prod, i) => (
-          <CategoryCard key={i} category={category} product={prod} />
-        ))}
-      </div>
-      {showPagination && (
-        <div className={classes.pagination}>
-          {currentPage > 1 && (
-            <a href={getPreviousPage()} className={classes.button}>
-              Poprzednia
-            </a>
-          )}
-          {currentPage <= 1 && (
-            <button className={`${classes.button} ${classes.buttonDisabled}`}>
-              Poprzednia
-            </button>
-          )}
-          <span className={classes.pageIndicator}>{currentPage}</span>
-          {currentPage < maxPage && (
-            <a href={getNextPage()} className={classes.button}>
-              Następna
-            </a>
-          )}
-          {currentPage >= maxPage && (
-            <button className={`${classes.button} ${classes.buttonDisabled}`}>
-              Następna
-            </button>
-          )}
+      {category.product.lenght > 0 && (
+        <div className={classes.productsWrapper}>
+          {category.product.map((prod, i) => (
+            <CategoryCard key={i} category={category} product={prod} />
+          ))}
         </div>
       )}
+      <div className={classes.description}>
+        {category.descriptionMarkdown && category.descriptionMarkdown !== "" ? (
+          <ReactMarkdown>{category.descriptionMarkdown}</ReactMarkdown>
+        ) : (
+          category.description
+        )}
+      </div>
+      <div className={classes.pagination}>
+        <a
+          href={`${configData.baseUrl}/${allCategories[previousCategoryIndex]}`}
+          className={classes.button}>
+          Poprzednia
+        </a>
+        <span className={classes.pageIndicator}>Kategorie</span>
+        <a
+          href={`${configData.baseUrl}/${allCategories[nextCategoryIndex]}`}
+          className={classes.button}>
+          Następna
+        </a>
+      </div>
     </>
   );
 }
