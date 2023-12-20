@@ -12,14 +12,14 @@ function Footer() {
       <div className={classes.footerWrapper}>
         <div className={classes.logoColumn}>
           <div className={classes.logo}>
-            <Link href="/" passHref={true}>
+            <Link legacyBehavior href="/" passHref={true}>
               <a>
                 <Image
                   src="/logo-white.svg"
                   alt="Dobopack logo"
                   width={242}
                   height={70}
-                  layout="fixed"></Image>
+                  fixed="true"></Image>
               </a>
             </Link>
           </div>
@@ -35,7 +35,7 @@ function Footer() {
                 alt="Lokalizacja"
                 width={14}
                 height={20}
-                layout="fixed"></Image>
+                fixed="true"></Image>
             </div>
             <div className={classes.rowContent}>
               Rydygiera 8, 01-793 Warszawa
@@ -48,7 +48,7 @@ function Footer() {
                 alt="Telefon stacjonarny"
                 width={19}
                 height={22}
-                layout="fixed"></Image>
+                fixed="true"></Image>
             </div>
             <div className={classes.rowContent}>22 633 96 26</div>
           </a>
@@ -59,7 +59,7 @@ function Footer() {
                 alt="Fax"
                 width={20}
                 height={20}
-                layout="fixed"></Image>
+                fixed="true"></Image>
             </div>
             <div className={classes.rowContent}>22 633 86 96</div>
           </a>
@@ -72,7 +72,7 @@ function Footer() {
                 alt="Telefon komórkowy"
                 width={18}
                 height={18}
-                layout="fixed"></Image>
+                fixed="true"></Image>
             </div>
             <div className={classes.rowContent}>48 508 135 525</div>
           </a>
@@ -83,7 +83,7 @@ function Footer() {
                 alt="Telefon komórkowy"
                 width={18}
                 height={18}
-                layout="fixed"></Image>
+                fixed="true"></Image>
             </div>
             <div className={classes.rowContent}>48 507 033 685</div>
           </a>
@@ -94,7 +94,7 @@ function Footer() {
                 alt="Mail"
                 width={20}
                 height={16}
-                layout="fixed"></Image>
+                fixed="true"></Image>
             </div>
             <div className={classes.rowContent}>biuro@kolory.com</div>
           </a>
@@ -107,7 +107,7 @@ function Footer() {
                 alt="Dobopack facebook"
                 width={22}
                 height={22}
-                layout="fixed"></Image>
+                fixed="true"></Image>
             </div>
             <div className={classes.rowContent}>dobopack</div>
           </a>
@@ -115,7 +115,9 @@ function Footer() {
       </div>
       <p className={classes.copyright}>
         ©{fullYear} Dobopack |{" "}
-        <Link href="/polityka">Polityka prywatności</Link>
+        <Link legacyBehavior href="/polityka">
+          Polityka prywatności
+        </Link>
       </p>
     </footer>
   );

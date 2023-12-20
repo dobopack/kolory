@@ -170,14 +170,14 @@ function FormSection() {
         </div>
         <p className={classes.caption}>
           Prosimy o zapoznanie się z naszą{" "}
-          <Link href="/polityka" passHref={true}>
+          <Link legacyBehavior href="/polityka" passHref={true}>
             <a
               className={`${classes.linkCaption} ${classes.captionBold} ${classes.pointer}`}>
               polityką prywatności{" "}
             </a>
           </Link>
           oraz{" "}
-          <Link href="/ochrona-danych" passHref={true}>
+          <Link legacyBehavior href="/ochrona-danych" passHref={true}>
             <a
               className={`${classes.linkCaption} ${classes.captionBold} ${classes.pointer}`}>
               ochrony danych osobowych

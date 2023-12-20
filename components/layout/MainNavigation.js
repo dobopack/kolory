@@ -35,10 +35,10 @@ function MainNavigation({ isMain }) {
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
-        <Link href="/" passHref={true}>
+        <Link legacyBehavior href="/" passHref={true}>
           <a>
             <div className={classes.logoContainer}>
-              <Image src={logo} alt="Dobopack logo" layout="fill"></Image>
+              <Image src={logo} alt="Dobopack logo" fill></Image>
             </div>
           </a>
         </Link>

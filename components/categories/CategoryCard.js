@@ -27,11 +27,14 @@ function CategoryCard({ category, product }) {
 
   return (
     <div className={classes.cardWrapper}>
-      <Link href={`/${category.slug}/${product.slug}`} passHref={true}>
+      <Link
+        legacyBehavior
+        href={`/${category.slug}/${product.slug}`}
+        passHref={true}>
         <a className={classes.cardInner}>
           {colorCircle}
           <div className={classes.cardImage}>
-            <Image src={imageUrl} alt={product.name} layout="fill" />
+            <Image src={imageUrl} alt={product.name} fill />
           </div>
           <div className={classes.cardDescription}>{product.name}</div>
         </a>

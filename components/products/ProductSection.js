@@ -31,8 +31,8 @@ function ProductSection({ product }) {
           <Image
             src={imageUrl}
             alt={product.name}
-            layout="fill"
-            objectFit="contain"></Image>
+            fill
+            style={{ objectFit: "contain" }}></Image>
         </div>
         <div className={classes.shortDescription}>
           {product.shortDescriptionMarkdown &&

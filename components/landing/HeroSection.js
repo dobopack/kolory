@@ -21,7 +21,7 @@ function HeroSection({ config }) {
           )}
         </h2>
         <div className={classes.buttonSection} onClick={removeHash}>
-          <Link href="/#product" passHref={true}>
+          <Link legacyBehavior href="/#product" passHref={true}>
             <a>
               <div
                 className={`${classes.productsButton} ${classes.buttonElement}`}>
@@ -29,7 +29,7 @@ function HeroSection({ config }) {
               </div>
             </a>
           </Link>
-          <Link href="/#form" passHref={true}>
+          <Link legacyBehavior href="/#form" passHref={true}>
             <a>
               <div className={`${classes.ctaButton} ${classes.buttonElement}`}>
                 Napisz do nas

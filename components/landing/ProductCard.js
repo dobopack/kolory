@@ -15,11 +15,11 @@ function ProductCard({ category }) {
   }
 
   return (
-    <Link href={`/${category.slug}`} passHref={true}>
+    <Link legacyBehavior href={`/${category.slug}`} passHref={true}>
       <a className={classes.cardContainer}>
         <div className={classes.cardInner}>
           <div className={classes.imageContainer}>
-            <Image src={imageUrl} alt={category.name} layout="fill" />
+            <Image src={imageUrl} alt={category.name} fill />
           </div>
           <div className={classes.headerContainer}>
             <h3>{category.name}</h3>

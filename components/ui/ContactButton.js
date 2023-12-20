@@ -9,7 +9,7 @@ import removeHash from "../../removeHash";
 
 function ContactButton(props) {
   return (
-    <Link href={props.href} passHref={true}>
+    <Link legacyBehavior href={props.href} passHref={true}>
       <a
         className={`${classes.wrapper} ${
           props.className ? props.className : ""

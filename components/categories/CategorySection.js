@@ -19,7 +19,7 @@ function CategorySection({ category, allCategories }) {
 
   return (
     <>
-      {category.product.lenght > 0 && (
+      {category.product.length > 0 && (
         <div className={classes.productsWrapper}>
           {category.product.map((prod, i) => (
             <CategoryCard key={i} category={category} product={prod} />

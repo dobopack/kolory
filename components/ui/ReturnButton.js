@@ -9,7 +9,7 @@ import removeHash from "../../removeHash";
 
 function ReturnButton(props) {
   return (
-    <Link href={props.href} passHref={true}>
+    <Link legacyBehavior href={props.href} passHref={true}>
       <a className={classes.wrapper} onClick={removeHash}>
         <div className={classes.image}>
           <Image src={leftArrow} width={24} height={24} alt="Strzałka"></Image>
